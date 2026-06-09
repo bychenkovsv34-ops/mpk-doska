@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МПК-доска — выбор палитры</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#eceae6;color:#222;padding:30px 16px 60px;-webkit-font-smoothing:antialiased}
+.page{max-width:1000px;margin:0 auto}
+.page>h1{font-size:26px;font-weight:800;margin-bottom:6px}
+.page>p{color:#666;margin-bottom:28px;font-size:15px}
+.demo{border-radius:18px;overflow:hidden;margin-bottom:26px;box-shadow:0 6px 24px rgba(0,0,0,.1);border:1px solid #ddd}
+.demo-head{padding:14px 20px;font-weight:700;font-size:15px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.demo-head .hex{font-weight:500;font-size:12px;opacity:.85;font-family:monospace}
+.rec{background:rgba(255,255,255,.25);padding:3px 10px;border-radius:100px;font-size:12px}
+
+/* мини-макет: использует переменные палитры */
+.mock{background:var(--bg);color:var(--txt);padding:0}
+.mnav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:color-mix(in srgb,var(--bg),#fff 30%);border-bottom:1px solid var(--line)}
+.mlogo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px}
+.mlogo .m{width:26px;height:26px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center}
+.mlogo .m svg{width:15px;height:15px}
+.mlogo .ac{color:var(--accent)}
+.mcta{background:var(--accent);color:#fff;font-weight:700;font-size:13px;padding:9px 16px;border-radius:9px}
+.mhero{padding:34px 22px 26px}
+.mhero h2{font-size:30px;font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;max-width:14ch}
+.mhero h2 .ac{color:var(--accent)}
+.mhero p{color:var(--mut);font-size:15px;max-width:46ch;margin-bottom:18px}
+.mbtns{display:flex;gap:10px;flex-wrap:wrap}
+.b1{background:var(--accent);color:#fff;font-weight:700;font-size:14px;padding:11px 20px;border-radius:10px}
+.b2{background:var(--card);color:var(--txt);border:1px solid var(--line);font-weight:700;font-size:14px;padding:11px 20px;border-radius:10px}
+.mrow{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;padding:6px 22px 28px}
+@media(max-width:620px){.mrow{grid-template-columns:1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(60,40,20,.05)}
+.mcard .ic{width:40px;height:40px;border-radius:10px;background:color-mix(in srgb,var(--accent),transparent 86%);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:12px}
+.mcard .ic svg{width:22px;height:22px}
+.mcard b{font-size:16px;display:block;margin-bottom:5px}
+.mcard span{color:var(--mut);font-size:13.5px}
+.mstat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:center;text-align:center;box-shadow:0 2px 10px rgba(60,40,20,.05)}
+.mstat b{font-size:34px;font-weight:800;color:var(--accent);letter-spacing:-1px}
+.mstat span{color:var(--mut);font-size:13px;margin-top:4px}
+.swatches{display:flex;gap:8px;padding:0 22px 22px;flex-wrap:wrap}
+.swatches .s{height:30px;flex:1;min-width:54px;border-radius:7px;border:1px solid rgba(0,0,0,.08);position:relative}
+.swatches .s small{position:absolute;bottom:-17px;left:0;right:0;text-align:center;font-size:10px;color:var(--mut);font-family:monospace}
+.swrap{padding-bottom:18px}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>МПК-доска — выбор палитры 🎨</h1>
+  <p>4 варианта в реальных цветах (мини-макет сайта в каждой). Выбери, какая «цепляет» — под неё пересоберём сайт. A — рекомендую по исследованию.</p>
+
+  <!-- A -->
+  <div class="demo">
+    <div class="demo-head" style="background:#C2703D">A · Тёплое дерево <span class="rec">⭐ рекомендую</span><span class="hex">#FAF7F2 · #C2703D</span></div>
+    <div class="mock" style="--bg:#FAF7F2;--bg2:#F0EBE3;--card:#ffffff;--line:#e7ded0;--txt:#2B2622;--mut:#7d7567;--accent:#C2703D">
+      <div class="mnav"><div class="mlogo"><span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M3 8h18M3 12h18M3 16h18"/></svg></span>МПК<span class="ac">доска</span></div><div class="mcta">Рассчитать</div></div>
+      <div class="mhero"><h2>МПК-доска — <span class="ac">долговечнее ДПК на 20%</span></h2><p>Террасная, заборная и фасадная доска. Не выгорает, гарантия 10 лет.</p><div class="mbtns"><div class="b1">Рассчитать стоимость</div><div class="b2">Посмотреть цвета</div></div></div>
+      <div class="mrow"><div class="mcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.5 7.5 8 8 4.5-.5 8-3 8-8V7l-8-4Z"/></svg></div><b>Плотность выше на 20%</b><span>Прочнее ДПК, не прогибается под нагрузкой.</span></div><div class="mstat"><b>10 лет</b><span>гарантия завода</span></div></div>
+      <div class="swrap"><div class="swatches"><div class="s" style="background:#FAF7F2"><small>фон</small></div><div class="s" style="background:#2B2622"><small>текст</small></div><div class="s" style="background:#C2703D"><small>акцент</small></div><div class="s" style="background:#F0EBE3"><small>секции</small></div></div></div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="demo">
+    <div class="demo-head" style="background:#4A7C59">B · Природный премиум (зелёный)<span class="hex">#FFFFFF · #4A7C59</span></div>
+    <div class="mock" style="--bg:#FFFFFF;--bg2:#F4F5F2;--card:#ffffff;--line:#e6e8e4;--txt:#222826;--mut:#71776f;--accent:#4A7C59">
+      <div class="mnav"><div class="mlogo"><span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M3 8h18M3 12h18M3 16h18"/></svg></span>МПК<span class="ac">доска</span></div><div class="mcta">Рассчитать</div></div>
+      <div class="mhero"><h2>МПК-доска — <span class="ac">долговечнее ДПК на 20%</span></h2><p>Террасная, заборная и фасадная доска. Не выгорает, гарантия 10 лет.</p><div class="mbtns"><div class="b1">Рассчитать стоимость</div><div class="b2">Посмотреть цвета</div></div></div>
+      <div class="mrow"><div class="mcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.5 7.5 8 8 4.5-.5 8-3 8-8V7l-8-4Z"/></svg></div><b>Плотность выше на 20%</b><span>Прочнее ДПК, не прогибается под нагрузкой.</span></div><div class="mstat"><b>10 лет</b><span>гарантия завода</span></div></div>
+      <div class="swrap"><div class="swatches"><div class="s" style="background:#FFFFFF"><small>фон</small></div><div class="s" style="background:#222826"><small>текст</small></div><div class="s" style="background:#4A7C59"><small>акцент</small></div><div class="s" style="background:#F4F5F2"><small>секции</small></div></div></div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="demo">
+    <div class="demo-head" style="background:#2C5F7C">C · Доверие (синий + оранжевый CTA)<span class="hex">#FAFAF7 · #2C5F7C · #E8742C</span></div>
+    <div class="mock" style="--bg:#FAFAF7;--bg2:#F1F2EE;--card:#ffffff;--line:#e4e6e1;--txt:#1E2A33;--mut:#6b757c;--accent:#2C5F7C;--cta:#E8742C">
+      <div class="mnav"><div class="mlogo"><span class="m" style="background:#2C5F7C"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M3 8h18M3 12h18M3 16h18"/></svg></span>МПК<span class="ac">доска</span></div><div class="mcta" style="background:#E8742C">Рассчитать</div></div>
+      <div class="mhero"><h2>МПК-доска — <span class="ac">долговечнее ДПК на 20%</span></h2><p>Террасная, заборная и фасадная доска. Не выгорает, гарантия 10 лет.</p><div class="mbtns"><div class="b1" style="background:#E8742C">Рассчитать стоимость</div><div class="b2">Посмотреть цвета</div></div></div>
+      <div class="mrow"><div class="mcard"><div class="ic" style="background:rgba(44,95,124,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#2C5F7C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.5 7.5 8 8 4.5-.5 8-3 8-8V7l-8-4Z"/></svg></div><b>Плотность выше на 20%</b><span>Прочнее ДПК, не прогибается под нагрузкой.</span></div><div class="mstat"><b>10 лет</b><span>гарантия завода</span></div></div>
+      <div class="swrap"><div class="swatches"><div class="s" style="background:#FAFAF7"><small>фон</small></div><div class="s" style="background:#1E2A33"><small>текст</small></div><div class="s" style="background:#2C5F7C"><small>акцент</small></div><div class="s" style="background:#E8742C"><small>кнопка</small></div></div></div>
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="demo">
+    <div class="demo-head" style="background:#d29b56;color:#1c1208">D · Текущая тёмная (для сравнения)<span class="hex">#15110d · #d29b56</span></div>
+    <div class="mock" style="--bg:#15110d;--bg2:#1c1712;--card:#231d16;--line:#352c20;--txt:#f4efe7;--mut:#a89b88;--accent:#d29b56">
+      <div class="mnav" style="background:#1c1712"><div class="mlogo"><span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="#1c1208" stroke-width="2.4" stroke-linecap="round"><path d="M3 8h18M3 12h18M3 16h18"/></svg></span>МПК<span class="ac">доска</span></div><div class="mcta" style="color:#1c1208">Рассчитать</div></div>
+      <div class="mhero"><h2>МПК-доска — <span class="ac">долговечнее ДПК на 20%</span></h2><p>Террасная, заборная и фасадная доска. Не выгорает, гарантия 10 лет.</p><div class="mbtns"><div class="b1" style="color:#1c1208">Рассчитать стоимость</div><div class="b2">Посмотреть цвета</div></div></div>
+      <div class="mrow"><div class="mcard"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.5 7.5 8 8 4.5-.5 8-3 8-8V7l-8-4Z"/></svg></div><b>Плотность выше на 20%</b><span>Прочнее ДПК, не прогибается под нагрузкой.</span></div><div class="mstat"><b>10 лет</b><span>гарантия завода</span></div></div>
+      <div class="swrap"><div class="swatches"><div class="s" style="background:#15110d"><small>фон</small></div><div class="s" style="background:#f4efe7"><small>текст</small></div><div class="s" style="background:#d29b56"><small>акцент</small></div><div class="s" style="background:#231d16"><small>карточки</small></div></div></div>
+    </div>
+  </div>
+
+  <p style="color:#666;font-size:14px">Скажи букву (A / B / C / D) — пересоберём сайт в выбранной палитре.</p>
+</div>
+</body>
+</html>
