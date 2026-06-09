@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МПК-доска — концепты дизайна</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#d9d4cc;color:#222;padding:28px 14px 70px}
+.serif{font-family:Georgia,'Times New Roman',serif}
+.page{max-width:1020px;margin:0 auto}
+.page>h1{font-size:25px;font-weight:800;margin-bottom:6px}
+.page>.note{color:#615d55;margin-bottom:26px;font-size:15px;max-width:70ch}
+.demo{border-radius:20px;overflow:hidden;margin-bottom:30px;box-shadow:0 14px 50px rgba(40,30,15,.22);position:relative}
+.tag{position:absolute;top:16px;left:16px;z-index:5;background:rgba(0,0,0,.45);color:#fff;font-size:13px;font-weight:700;padding:7px 14px;border-radius:100px;backdrop-filter:blur(6px)}
+.rec{background:#0F5959}
+/* зерно */
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── Концепт 1: Тёплый вечер (тихая роскошь, светлый) ── */
+.c1{position:relative;background:#F5F1E6;color:#3B2A22;padding:0}
+.c1 .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 30px;border-bottom:1px solid #e4dccb}
+.c1 .lg{font-size:19px;font-weight:700;letter-spacing:.5px}
+.c1 .lg b{color:#0F5959}
+.c1 .nl{display:flex;gap:22px;color:#8a7f6e;font-size:14px}
+.c1 .ncta{border:1px solid #5D4631;color:#5D4631;font-weight:600;font-size:13px;padding:9px 18px;border-radius:2px}
+.c1 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:0}
+@media(max-width:760px){.c1 .hero{grid-template-columns:1fr}}
+.c1 .ht{padding:54px 30px 48px}
+.c1 .lbl{display:inline-flex;align-items:center;gap:8px;color:#B56A3A;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:20px}
+.c1 .lbl::before{content:"";width:26px;height:1px;background:#B56A3A}
+.c1 h2{font-size:clamp(30px,4.4vw,50px);line-height:1.08;font-weight:400;margin-bottom:18px;letter-spacing:-.5px}
+.c1 h2 em{font-style:italic;color:#0F5959}
+.c1 .hp{color:#7a6f5e;font-size:16px;line-height:1.6;max-width:42ch;margin-bottom:26px}
+.c1 .btns{display:flex;gap:12px;flex-wrap:wrap}
+.c1 .b1{background:#5D4631;color:#F5F1E6;font-weight:600;font-size:14px;padding:13px 26px;border-radius:2px}
+.c1 .b2{color:#3B2A22;border:1px solid #cfc4b0;font-weight:600;font-size:14px;padding:13px 26px;border-radius:2px}
+.c1 .himg{position:relative;background:
+  linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(40,25,10,.45)),
+  linear-gradient(150deg,#f4c879 0%,#dd9a52 32%,#bd6b39 60%,#3f5a3a 100%);
+  min-height:340px;display:flex;align-items:flex-end}
+.c1 .himg span{color:rgba(255,255,255,.9);font-size:13px;padding:18px 22px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.c1 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #e4dccb}
+@media(max-width:760px){.c1 .strip{grid-template-columns:1fr 1fr}}
+.c1 .st{padding:26px 24px;border-right:1px solid #e4dccb}
+.c1 .st b{font-size:30px;font-weight:400;color:#0F5959;display:block;letter-spacing:-1px}
+.c1 .st span{color:#8a7f6e;font-size:13px}
+
+/* ── Концепт 2: Тёмная рама (тёплый премиум) ── */
+.c2{position:relative;background:#1E1A17;color:#EDE6DA;padding:0}
+.c2 .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 30px;border-bottom:1px solid #322a23}
+.c2 .lg{font-size:19px;font-weight:700;letter-spacing:.5px}
+.c2 .lg b{color:#cfa15f}
+.c2 .nl{display:flex;gap:22px;color:#9d9182;font-size:14px}
+.c2 .ncta{border:1px solid #B56A3A;color:#cfa15f;font-weight:600;font-size:13px;padding:9px 18px;border-radius:2px}
+.c2 .hero{position:relative;padding:60px 30px 50px;background:
+  radial-gradient(120% 90% at 78% 18%,rgba(212,150,70,.30),transparent 55%),
+  radial-gradient(80% 70% at 90% 90%,rgba(47,107,94,.22),transparent 60%)}
+.c2 .lbl{display:inline-flex;align-items:center;gap:8px;color:#cfa15f;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:20px}
+.c2 .lbl::before{content:"";width:26px;height:1px;background:#cfa15f}
+.c2 h2{font-size:clamp(30px,4.4vw,52px);line-height:1.08;font-weight:400;margin-bottom:18px;letter-spacing:-.5px;max-width:15ch}
+.c2 h2 em{font-style:italic;color:#cfa15f}
+.c2 .hp{color:#b7ac9c;font-size:16px;line-height:1.6;max-width:42ch;margin-bottom:26px}
+.c2 .btns{display:flex;gap:12px;flex-wrap:wrap}
+.c2 .b1{background:linear-gradient(140deg,#cfa15f,#B56A3A);color:#1E1A17;font-weight:700;font-size:14px;padding:13px 26px;border-radius:2px}
+.c2 .b2{color:#EDE6DA;border:1px solid #4a3f34;font-weight:600;font-size:14px;padding:13px 26px;border-radius:2px}
+.c2 .row{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;padding:8px 30px 34px}
+@media(max-width:760px){.c2 .row{grid-template-columns:1fr}}
+.c2 .card{background:#26211c;border:1px solid #322a23;border-radius:4px;padding:22px}
+.c2 .card b{font-size:17px;display:block;margin-bottom:6px}
+.c2 .card span{color:#9d9182;font-size:14px}
+.c2 .stat{background:#26211c;border:1px solid #322a23;border-radius:4px;padding:22px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.c2 .stat b{font-size:34px;font-weight:400;color:#cfa15f;letter-spacing:-1px}
+.c2 .stat span{color:#9d9182;font-size:13px}
+
+.sw{display:flex;gap:8px;padding:18px 30px 24px;flex-wrap:wrap;background:inherit}
+.sw .s{height:30px;flex:1;min-width:60px;border-radius:5px;border:1px solid rgba(0,0,0,.12);position:relative}
+.sw .s small{position:absolute;bottom:-16px;left:0;right:0;text-align:center;font-size:10px;font-family:monospace;opacity:.7}
+.swwrap{padding-bottom:16px}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>МПК-доска — 2 концепта дизайна 🌅</h1>
+  <p class="note">Не плоские палитры, а концепция и эмоция (по разбору Koto, MYDECK, Dinesen + рынок РФ). Тёплый кремовый фон + зерно, золотой час, serif-заголовки, орех/изумруд/бронза. Картинки-плейсхолдеры = тёплый закатный градиент вместо будущего реального фото террасы. Скажи, какой концепт — под него соберём.</p>
+
+  <!-- Концепт 1 -->
+  <div class="demo grain">
+    <div class="tag rec">Концепт 1 · «Тёплый вечер» — тихая роскошь ⭐</div>
+    <div class="c1">
+      <div class="nav"><div class="lg serif">МПК<b>·</b>доска</div><div class="nl"><span>Доска</span><span>Применение</span><span>Объекты</span><span>Калькулятор</span></div><div class="ncta">Рассчитать</div></div>
+      <div class="hero">
+        <div class="ht">
+          <div class="lbl">Минерально-полимерная доска</div>
+          <h2 class="serif">Тёплая терраса,<br>которая служит <em>десятилетиями</em></h2>
+          <p class="hp">Уложил один раз — забыл о краске и ремонте. Не выгорает, не скользит босиком, безопасна для детей. Гарантия 10 лет.</p>
+          <div class="btns"><div class="b1">Рассчитать стоимость</div><div class="b2">Подобрать цвет</div></div>
+        </div>
+        <div class="himg"><span>фото террасы в золотой час →</span></div>
+      </div>
+      <div class="strip">
+        <div class="st"><b class="serif">10 лет</b><span>гарантия завода</span></div>
+        <div class="st"><b class="serif">25+</b><span>лет службы</span></div>
+        <div class="st"><b class="serif">0,1%</b><span>водопоглощение</span></div>
+        <div class="st" style="border-right:none"><b class="serif">+20%</b><span>плотность vs ДПК</span></div>
+      </div>
+    </div>
+    <div class="swwrap"><div class="sw" style="background:#F5F1E6"><div class="s" style="background:#F5F1E6"><small>#F5F1E6</small></div><div class="s" style="background:#3B2A22"><small>#3B2A22</small></div><div class="s" style="background:#0F5959"><small>изумруд</small></div><div class="s" style="background:#B56A3A"><small>бронза</small></div><div class="s" style="background:#5D4631"><small>орех</small></div></div></div>
+  </div>
+
+  <!-- Концепт 2 -->
+  <div class="demo grain">
+    <div class="tag">Концепт 2 · «Тёмная рама» — премиум-статус</div>
+    <div class="c2">
+      <div class="nav"><div class="lg serif">МПК<b>·</b>доска</div><div class="nl"><span>Доска</span><span>Применение</span><span>Объекты</span><span>Калькулятор</span></div><div class="ncta">Рассчитать</div></div>
+      <div class="hero">
+        <div class="lbl">Премиум-декинг для дома и объектов</div>
+        <h2 class="serif">Доска, как на верандах <em>дорогих ресторанов</em></h2>
+        <p class="hp">МПК нашего завода уже на террасах Hyatt Regency, парка «Ривьера» и ресторанов. Тёплая на ощупь, не горит, служит 25+ лет.</p>
+        <div class="btns"><div class="b1">Рассчитать стоимость</div><div class="b2">Смотреть объекты</div></div>
+      </div>
+      <div class="row">
+        <div class="card"><b class="serif">Уложил раз — служит десятилетиями</b><span>Не красить, не шкурить, не пропитывать. Просто живите.</span></div>
+        <div class="stat"><b class="serif">10 лет</b><span>гарантия завода</span></div>
+      </div>
+    </div>
+    <div class="swwrap"><div class="sw" style="background:#1E1A17"><div class="s" style="background:#1E1A17"><small style="color:#aaa">#1E1A17</small></div><div class="s" style="background:#EDE6DA"><small>текст</small></div><div class="s" style="background:#cfa15f"><small>бронза</small></div><div class="s" style="background:#B56A3A"><small>медь</small></div><div class="s" style="background:#2F6B5E"><small>изумруд</small></div></div></div>
+  </div>
+
+  <p class="note">A — светлый «тёплый вечер» (тепло + дружелюбно + дорого). B — тёмный «премиум-статус» (история «как у дорогих»). В обоих главное тепло даст РЕАЛЬНОЕ фото террасы в закатном свете — его поставим вместо градиента. Скажи: <b>1 или 2</b> (или смешать) — соберём полноценно.</p>
+</div>
+</body>
+</html>
