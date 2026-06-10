@@ -97,6 +97,15 @@ section{padding:90px 0}
 .model b{font-family:Georgia,serif;font-size:24px;font-weight:400;display:block;margin-bottom:2px}
 .model .sz{color:var(--bronze);font-weight:700;font-size:14px;margin-bottom:10px}
 .model p{color:var(--mut);font-size:14px}
+.econom{max-width:920px;margin:18px auto 0;display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+  background:var(--bg);border:1px dashed var(--line);border-radius:6px;padding:20px 26px}
+.econom-tag{flex-shrink:0;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);font-weight:700;
+  border:1px solid var(--line);border-radius:20px;padding:6px 14px}
+.econom-body{flex:1;min-width:240px}
+.econom-body b{font-family:Georgia,serif;font-size:18px;font-weight:400;display:block;margin-bottom:4px;color:var(--txt)}
+.econom-body p{color:var(--mut);font-size:14px}
+.econom .btn{flex-shrink:0}
+@media(max-width:620px){.econom{justify-content:center;text-align:center}}
 
 .colors{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;max-width:920px;margin:0 auto}
 @media(max-width:760px){.colors{grid-template-columns:repeat(4,1fr)}}
@@ -329,6 +338,14 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
       <div class="model reveal"><b class="serif">Arte</b><div class="sz">140 × 22 мм</div><p>Базовая террасная доска для дома и дачи. Оптимум цены и качества.</p></div>
       <div class="model reveal"><b class="serif">Strada</b><div class="sz">140 × 25 мм · ступень 180 × 25</div><p>Усиленная доска и ступени — для активных зон и лестниц.</p></div>
       <div class="model reveal"><b class="serif">Forte / MAX</b><div class="sz">160 × 22 мм</div><p>Широкая премиум-доска для больших террас и объектов.</p></div>
+    </div>
+    <div class="econom reveal">
+      <div class="econom-tag">Бюджетная линия</div>
+      <div class="econom-body">
+        <b class="serif">Solito R — доска из ДПК, 22 × 140</b>
+        <p>Экономичный вариант, когда нужно дешевле, чем премиум-МПК. Тот же внешний вид террасы — при меньшем бюджете. Тоже есть в калькуляторе.</p>
+      </div>
+      <a href="#calc" class="btn btn-ghost">Посчитать Solito</a>
     </div>
   </div>
 </section>
