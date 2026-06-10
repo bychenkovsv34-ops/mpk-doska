@@ -300,6 +300,7 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
         <a href="#why">Почему МПК</a>
         <a href="#compare">Сравнение</a>
         <a href="#apps">Применение</a>
+        <a href="catalog.html">Каталог</a>
         <a href="#colors">Цвета</a>
         <a href="#objects">Объекты</a>
         <a href="#faq">Вопросы</a>
@@ -406,6 +407,9 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
       </div>
       <a href="#calc" class="btn btn-ghost">Посчитать Solito</a>
     </div>
+    <div class="center" style="margin-top:30px">
+      <a href="catalog.html" class="btn">Весь каталог изделий и цветов →</a>
+    </div>
   </div>
 </section>
 
@@ -508,8 +512,8 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
           <div class="fld">
             <label>Цвет</label>
             <select id="color">
-              <option>серый</option><option>графит</option><option>шоколад</option><option>какао</option><option>чёрный</option>
-              <option>красный</option><option>бронза</option><option>жёлтый</option><option>белый</option><option>бежевый</option>
+              <option>Серый</option><option>Антрацит</option><option>Бронза</option><option>Жемчуг</option><option>Песочный</option>
+              <option>Терракот</option><option>Шоколад</option><option>Какао</option><option>Бежевый</option><option>Жёлтый</option>
             </select>
           </div>
           <div class="fld">
@@ -754,6 +758,17 @@ function calc(){
   const el=$(id); el.addEventListener('input',calc); el.addEventListener('change',calc);
 });
 calc();
+
+// предзаполнение из каталога: index.html#calc?model=arte&color=Шоколад&treat=...
+(function(){
+  if(!location.hash.startsWith('#calc'))return;
+  const q=location.hash.split('?')[1]; if(!q)return;
+  const p=new URLSearchParams(q);
+  const setSel=(id,val)=>{if(!val)return;const el=$(id);if(!el)return;const o=[...el.options].find(x=>x.value.toLowerCase()===val.toLowerCase()||x.text.toLowerCase()===val.toLowerCase());if(o)el.value=o.value;};
+  setSel('model',p.get('model')); setSel('color',p.get('color')); setSel('treat',p.get('treat'));
+  calc();
+  setTimeout(()=>document.getElementById('calc')?.scrollIntoView({behavior:'smooth'}),250);
+})();
 
 // текст расчёта (для письма / печати)
 function summaryText(){

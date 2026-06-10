@@ -1,0 +1,298 @@
+{
+ "arte": [
+  {
+   "slug": "antratsit",
+   "ru": "антрацит"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "zhemchug",
+   "ru": "жемчуг"
+  },
+  {
+   "slug": "pesochnyy",
+   "ru": "песочный"
+  },
+  {
+   "slug": "seryy",
+   "ru": "серый"
+  },
+  {
+   "slug": "terrakot",
+   "ru": "терракот"
+  },
+  {
+   "slug": "shokolad",
+   "ru": "шоколад"
+  }
+ ],
+ "strada": [
+  {
+   "slug": "antratsit",
+   "ru": "антрацит"
+  },
+  {
+   "slug": "zhemchug",
+   "ru": "жемчуг"
+  },
+  {
+   "slug": "pesochnyy",
+   "ru": "песочный"
+  },
+  {
+   "slug": "terrakot",
+   "ru": "терракот"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "seryy",
+   "ru": "серый"
+  },
+  {
+   "slug": "shokolad",
+   "ru": "шоколад"
+  }
+ ],
+ "forte": [
+  {
+   "slug": "bezh",
+   "ru": "бежевый"
+  },
+  {
+   "slug": "kakao",
+   "ru": "какао"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "zheltyy",
+   "ru": "желтый"
+  },
+  {
+   "slug": "shokolad",
+   "ru": "шоколад"
+  }
+ ],
+ "zabor_campione": [
+  {
+   "slug": "antratsit",
+   "ru": "антрацит"
+  },
+  {
+   "slug": "terrakot",
+   "ru": "терракот"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "zhemchug",
+   "ru": "жемчуг"
+  },
+  {
+   "slug": "pesochnyy",
+   "ru": "песочный"
+  },
+  {
+   "slug": "seryy",
+   "ru": "серый"
+  }
+ ],
+ "zabor_ottimo": [
+  {
+   "slug": "antratsit",
+   "ru": "антрацит"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "zhemchug",
+   "ru": "жемчуг"
+  },
+  {
+   "slug": "pesochnyy",
+   "ru": "песочный"
+  },
+  {
+   "slug": "seryy",
+   "ru": "серый"
+  },
+  {
+   "slug": "terrakot",
+   "ru": "терракот"
+  },
+  {
+   "slug": "shokolad",
+   "ru": "шоколад"
+  }
+ ],
+ "shtaketnik": [
+  {
+   "slug": "antratsit",
+   "ru": "антрацит"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "zhemchug",
+   "ru": "жемчуг"
+  },
+  {
+   "slug": "pesochnyy",
+   "ru": "песочный"
+  },
+  {
+   "slug": "seryy",
+   "ru": "серый"
+  },
+  {
+   "slug": "terrakot",
+   "ru": "терракот"
+  },
+  {
+   "slug": "shokolad",
+   "ru": "шоколад"
+  }
+ ],
+ "fasad_campione": [
+  {
+   "slug": "antratsit",
+   "ru": "антрацит"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "zhemchug",
+   "ru": "жемчуг"
+  },
+  {
+   "slug": "pesochnyy",
+   "ru": "песочный"
+  },
+  {
+   "slug": "seryy",
+   "ru": "серый"
+  },
+  {
+   "slug": "terrakot",
+   "ru": "терракот"
+  },
+  {
+   "slug": "shokolad",
+   "ru": "шоколад"
+  }
+ ],
+ "planken": [
+  {
+   "slug": "antratsit",
+   "ru": "антрацит"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "zhemchug",
+   "ru": "жемчуг"
+  },
+  {
+   "slug": "pesochnyy",
+   "ru": "песочный"
+  },
+  {
+   "slug": "seryy",
+   "ru": "серый"
+  },
+  {
+   "slug": "terrakot",
+   "ru": "терракот"
+  },
+  {
+   "slug": "shokolad",
+   "ru": "шоколад"
+  }
+ ],
+ "ugolok": [
+  {
+   "slug": "antratsit",
+   "ru": "антрацит"
+  },
+  {
+   "slug": "bronza",
+   "ru": "бронза"
+  },
+  {
+   "slug": "zhemchug",
+   "ru": "жемчуг"
+  },
+  {
+   "slug": "pesochnyy",
+   "ru": "песочный"
+  },
+  {
+   "slug": "seryy",
+   "ru": "серый"
+  },
+  {
+   "slug": "terrakot",
+   "ru": "терракот"
+  },
+  {
+   "slug": "shokolad",
+   "ru": "шоколад"
+  }
+ ],
+ "brus": [
+  {
+   "slug": "полнотелый_30x50",
+   "ru": "полнотелый 30x50"
+  },
+  {
+   "slug": "полнотелый_40x90",
+   "ru": "полнотелый 40x90"
+  },
+  {
+   "slug": "пустотелый_40x90",
+   "ru": "пустотелый 40x90"
+  }
+ ],
+ "laga": [
+  {
+   "slug": "30x50",
+   "ru": "30x50"
+  },
+  {
+   "slug": "30x40",
+   "ru": "30x40"
+  },
+  {
+   "slug": "35x60",
+   "ru": "35x60"
+  },
+  {
+   "slug": "алюмин_20x40",
+   "ru": "алюмин. 20x40"
+  }
+ ],
+ "stupen": [
+  {
+   "slug": "v1",
+   "ru": "v1"
+  }
+ ]
+}

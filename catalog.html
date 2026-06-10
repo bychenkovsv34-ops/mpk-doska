@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каталог изделий из МПК — террасная, заборная, фасадная доска | МПК-доска</title>
+<meta name="description" content="Каталог изделий из МПК: террасная доска Arte, Strada, Forte; заборная Campione, Ottimo, штакетник; фасадная панель и планкен; брус, ступени, комплектующие. Реальные цвета и фактуры.">
+<!-- ТЕСТ: закрыто от индексации. УБРАТЬ при переезде на боевой домен -->
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{--bg:#1e1a17;--bg2:#211d19;--card:#26211c;--card2:#2c261f;--line:#332c24;--txt:#ede6da;--mut:#9d9182;--bronze:#cfa15f;--bronze2:#b56a3a;--emerald:#3f8a78;--glowA:rgba(212,150,70,.22)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased}
+.serif{font-family:Georgia,'Times New Roman',serif}
+.wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+a{color:inherit;text-decoration:none}
+header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);background:rgba(30,26,23,.8);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:Georgia,serif;font-size:21px;font-weight:700;letter-spacing:.5px}
+.logo b{color:var(--bronze)}
+.nav-links{display:flex;gap:24px;font-size:14.5px;color:var(--mut)}
+.nav-links a:hover{color:var(--txt)}
+@media(max-width:760px){.nav-links{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(140deg,var(--bronze),var(--bronze2));color:#1e1a17;font-weight:700;font-size:14px;padding:11px 20px;border-radius:3px;border:none;cursor:pointer;transition:.2s;white-space:nowrap}
+.btn:hover{filter:brightness(1.06);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--bronze);color:var(--bronze)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--bronze);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--bronze)}
+.top{padding:120px 0 30px;text-align:center}
+.top h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,48px);font-weight:400;letter-spacing:-.5px;margin-bottom:14px}
+.top h1 em{font-style:italic;color:var(--bronze)}
+.top p{color:var(--mut);max-width:600px;margin:0 auto;font-size:17px}
+.cat-nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:28px 0 10px}
+.cat-nav a{font-size:13.5px;color:var(--mut);border:1px solid var(--line);padding:8px 15px;border-radius:20px;transition:.2s}
+.cat-nav a:hover{border-color:var(--bronze);color:var(--bronze)}
+.group{padding:34px 0 6px}
+.group h2{font-family:Georgia,serif;font-weight:400;font-size:26px;margin-bottom:20px;padding-left:2px}
+.group h2 span{color:var(--mut);font-size:15px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cgrid{grid-template-columns:1fr}}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.ccard:hover{border-color:var(--bronze)}
+.cmain{aspect-ratio:4/3;background:#f4f1ea;cursor:zoom-in;overflow:hidden}
+.cmain img{width:100%;height:100%;object-fit:contain;display:block;padding:6px}
+.cthumbs{display:flex;flex-wrap:wrap;gap:6px;padding:12px 14px 4px}
+.cthumb{width:38px;height:38px;border-radius:6px;overflow:hidden;border:2px solid transparent;cursor:pointer;background:#f4f1ea;flex-shrink:0;transition:.15s}
+.cthumb.on{border-color:var(--bronze)}
+.cthumb img{width:100%;height:100%;object-fit:cover}
+.cinfo{padding:8px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cinfo b{font-family:Georgia,serif;font-size:19px;font-weight:400}
+.cinfo .sec{color:var(--bronze);font-size:13px;font-weight:600}
+.cinfo .cname{color:var(--mut);font-size:13px}
+.cinfo p{color:var(--mut);font-size:14px;flex:1}
+.cact{display:flex;gap:8px;margin-top:6px}
+.cact .btn{flex:1;font-size:13px;padding:10px 12px}
+footer{border-top:1px solid var(--line);padding:38px 0;color:var(--mut);font-size:14px;margin-top:50px}
+.foot-credit{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:#6f655a}
+.foot-credit a{color:var(--bronze);font-weight:600}
+/* лайтбокс */
+.lbox{position:fixed;inset:0;z-index:200;background:rgba(10,8,6,.93);display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:24px;cursor:zoom-out;backdrop-filter:blur(3px)}
+.lbox.open{display:flex}
+.lbox img{max-width:min(92vw,860px);max-height:80vh;border-radius:10px;background:#f4f1ea}
+.lbox-cap{color:var(--txt);font-family:Georgia,serif;font-size:18px;text-align:center}
+.lbox-x{position:absolute;top:16px;right:22px;background:none;border:0;color:var(--txt);font-size:32px;cursor:pointer;opacity:.8}
+.lbox-x:hover{opacity:1;color:var(--bronze)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <a href="index.html" class="logo serif">МПК<b>·</b>доска</a>
+    <div class="nav-links">
+      <a href="index.html">На главную</a>
+      <a href="#terrace">Террасная</a>
+      <a href="#fence">Забор</a>
+      <a href="#facade">Фасад</a>
+      <a href="#extra">Комплектующие</a>
+    </div>
+    <a href="index.html#calc" class="btn">Калькулятор</a>
+  </nav></div>
+</header>
+
+<section class="top">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-left:auto;margin-right:auto">Каталог</div>
+    <h1>Изделия из <em>МПК</em></h1>
+    <p>Выберите цвет — фото обновится. Нажмите на фото, чтобы рассмотреть цвет и структуру крупно. Для террасной доски — кнопка «Рассчитать» сразу с выбранной моделью и цветом.</p>
+    <div class="cat-nav">
+      <a href="#terrace">Террасная доска</a><a href="#fence">Заборная доска</a><a href="#facade">Фасад и планкен</a><a href="#extra">Брус, ступени, комплектующие</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="group" id="terrace"><h2 class="serif">Террасная доска <span>· МПК</span></h2><div class="cgrid" data-group="terrace"></div></div>
+  <div class="group" id="fence"><h2 class="serif">Заборная доска <span>· МПК</span></h2><div class="cgrid" data-group="fence"></div></div>
+  <div class="group" id="facade"><h2 class="serif">Фасад и планкен <span>· МПК</span></h2><div class="cgrid" data-group="facade"></div></div>
+  <div class="group" id="extra"><h2 class="serif">Брус, ступени, комплектующие</h2><div class="cgrid" data-group="extra"></div></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>ТОРГОВАЯ КОМПАНИЯ АЛЬЯНС · официальный дилер завода-производителя МПК · Московская обл., г. Ивантеевка, ул. Школьная, 25 · +7 (960) 878-50-00</div>
+    <div class="foot-credit">Сделано в студии <a href="https://agblabai.ru" target="_blank" rel="noopener">AGBLab&nbsp;AI</a> — сайты и AI-продавцы для бизнеса под ключ</div>
+  </div>
+</footer>
+
+<div class="lbox" id="lbox"><button class="lbox-x" id="lboxX" aria-label="Закрыть">✕</button><img id="lboxImg" alt=""><div class="lbox-cap" id="lboxCap"></div></div>
+
+<script>
+const CT=[
+ {g:'terrace',s:'arte',t:'Arte',sec:'22×140',calc:'arte',d:'Базовая террасная доска для дома и дачи. Оптимум цены и качества.',v:[['antratsit','Антрацит'],['bronza','Бронза'],['zhemchug','Жемчуг'],['pesochnyy','Песочный'],['seryy','Серый'],['terrakot','Терракот'],['shokolad','Шоколад']]},
+ {g:'terrace',s:'strada',t:'Strada',sec:'25×140',calc:'strada',d:'Усиленная доска и ступени — для активных зон и лестниц.',v:[['antratsit','Антрацит'],['zhemchug','Жемчуг'],['pesochnyy','Песочный'],['terrakot','Терракот'],['bronza','Бронза'],['seryy','Серый'],['shokolad','Шоколад']]},
+ {g:'terrace',s:'forte',t:'Forte / MAX',sec:'22×160',calc:'forte',d:'Широкая премиум-доска для больших террас и объектов (пусто- и полнотелая).',v:[['bezh','Бежевый'],['kakao','Какао'],['bronza','Бронза'],['zheltyy','Жёлтый'],['shokolad','Шоколад']]},
+ {g:'fence',s:'zabor_campione',t:'Заборная Campione',sec:'11×145',calc:null,d:'Забор, который не гниёт и не требует покраски.',v:[['antratsit','Антрацит'],['terrakot','Терракот'],['bronza','Бронза'],['zhemchug','Жемчуг'],['pesochnyy','Песочный'],['seryy','Серый']]},
+ {g:'fence',s:'zabor_ottimo',t:'Заборная Ottimo',sec:'13×145',calc:null,d:'Двусторонняя заборная доска с 3D-текстурой дерева.',v:[['antratsit','Антрацит'],['bronza','Бронза'],['zhemchug','Жемчуг'],['pesochnyy','Песочный'],['seryy','Серый'],['terrakot','Терракот'],['shokolad','Шоколад']]},
+ {g:'fence',s:'shtaketnik',t:'Штакетник',sec:'11×69',calc:null,d:'Лёгкий штакетник для ограждений и зонирования.',v:[['antratsit','Антрацит'],['bronza','Бронза'],['zhemchug','Жемчуг'],['pesochnyy','Песочный'],['seryy','Серый'],['terrakot','Терракот'],['shokolad','Шоколад']]},
+ {g:'facade',s:'fasad_campione',t:'Фасадная панель Campione',sec:'16×160',calc:null,d:'Вентилируемый фасад на десятилетия.',v:[['antratsit','Антрацит'],['bronza','Бронза'],['zhemchug','Жемчуг'],['pesochnyy','Песочный'],['seryy','Серый'],['terrakot','Терракот'],['shokolad','Шоколад']]},
+ {g:'facade',s:'planken',t:'Планкен',sec:'13×145',calc:null,d:'Фасадный планкен, матовые фактуры — без эффекта пластика.',v:[['antratsit','Антрацит'],['bronza','Бронза'],['zhemchug','Жемчуг'],['pesochnyy','Песочный'],['seryy','Серый'],['terrakot','Терракот'],['shokolad','Шоколад']]},
+ {g:'extra',s:'brus',t:'Лавочный брус',sec:'30×50 / 40×90',calc:null,d:'Брус для скамеек, лавок и малых форм.',v:[['poln_30x50','Полнотелый 30×50'],['poln_40x90','Полнотелый 40×90'],['pustot_40x90','Пустотелый 40×90']]},
+ {g:'extra',s:'stupen',t:'Ступень',sec:'25×180 наборная',calc:null,d:'Наборная ступень: Strada 25×180 (с капиносом) + доска 25×140 той же длины.',v:[['main','Ступень']]},
+ {g:'extra',s:'laga',t:'Лага (подсистема)',sec:'30×50 / 35×60 / 30×40',calc:null,d:'Опорные лаги под террасу и обрешётку фасада.',v:[['30x50','30×50'],['35x60','35×60'],['30x40','30×40'],['alu_20x40','Алюминиевая 20×40']]},
+ {g:'extra',s:'ugolok',t:'Уголок / торцевой',sec:'40×60',calc:null,d:'Торцевой завершающий профиль для аккуратного канта.',v:[['antratsit','Антрацит'],['bronza','Бронза'],['zhemchug','Жемчуг'],['pesochnyy','Песочный'],['seryy','Серый'],['terrakot','Терракот'],['shokolad','Шоколад']]},
+];
+const $=id=>document.getElementById(id);
+const img=(s,v)=>'assets/catalog/'+s+'/'+v+'.jpg';
+const lb=$('lbox'),lbImg=$('lboxImg'),lbCap=$('lboxCap');
+function openLB(src,cap){lbImg.src=src;lbCap.textContent=cap||'';lb.classList.add('open');}
+lb.addEventListener('click',e=>{if(e.target!==lbImg){lb.classList.remove('open');lbImg.src='';}});
+$('lboxX').addEventListener('click',()=>{lb.classList.remove('open');lbImg.src='';});
+addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('open');lbImg.src='';}});
+
+CT.forEach(p=>{
+  const grid=document.querySelector('.cgrid[data-group="'+p.g+'"]'); if(!grid)return;
+  let cur=p.v[0];
+  const card=document.createElement('div'); card.className='ccard';
+  const thumbs=p.v.map((c,i)=>'<div class="cthumb'+(i===0?' on':'')+'" data-v="'+c[0]+'" data-ru="'+c[1]+'" title="'+c[1]+'"><img src="'+img(p.s,c[0])+'" alt="'+c[1]+'" loading="lazy"></div>').join('');
+  const act = p.calc
+    ? '<a class="btn cbtn-calc" href="index.html#calc?model='+p.calc+'&color='+encodeURIComponent(cur[1])+'">Рассчитать</a>'
+    : '<a class="btn btn-ghost" href="index.html#contact">Запросить расчёт</a>';
+  card.innerHTML='<div class="cmain"><img alt="'+p.t+'"></div>'
+    +'<div class="cthumbs">'+thumbs+'</div>'
+    +'<div class="cinfo"><b class="serif">'+p.t+'</b><span class="sec">'+p.sec+'</span><span class="cname">Цвет: <b class="curname">'+cur[1]+'</b></span><p>'+p.d+'</p><div class="cact">'+act+'</div></div>';
+  grid.appendChild(card);
+  const mainImg=card.querySelector('.cmain img'), curEl=card.querySelector('.curname'), calcBtn=card.querySelector('.cbtn-calc');
+  function setColor(c){cur=c;mainImg.src=img(p.s,c[0]);curEl.textContent=c[1];
+    if(calcBtn)calcBtn.href='index.html#calc?model='+p.calc+'&color='+encodeURIComponent(c[1]);}
+  setColor(p.v[0]);
+  card.querySelectorAll('.cthumb').forEach(t=>t.addEventListener('click',()=>{
+    card.querySelectorAll('.cthumb').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+    setColor([t.dataset.v,t.dataset.ru]);
+  }));
+  card.querySelector('.cmain').addEventListener('click',()=>openLB(img(p.s,cur[0]),p.t+' · '+cur[1]));
+});
+</script>
+</body>
+</html>
