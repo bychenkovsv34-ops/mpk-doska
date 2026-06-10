@@ -664,6 +664,7 @@ document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{
 
 /* ===== лайтбокс: клик по цвету/текстуре → крупное фото (путь -lg и подпись авто) ===== */
 (function(){
+  const $=id=>document.getElementById(id);
   const lb=$('lbox'),lbImg=$('lboxImg'),lbCap=$('lboxCap');
   const openLB=(src,cap)=>{lbImg.src=src;lbCap.textContent=cap||'';lb.classList.add('open');};
   const closeLB=()=>{lb.classList.remove('open');lbImg.src='';};
