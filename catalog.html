@@ -140,7 +140,7 @@ CT.forEach(p=>{
   const thumbs=p.v.map((c,i)=>'<div class="cthumb'+(i===0?' on':'')+'" data-v="'+c[0]+'" data-ru="'+c[1]+'" title="'+c[1]+'"><img src="'+img(p.s,c[0])+'" alt="'+c[1]+'" loading="lazy"></div>').join('');
   const act = p.calc
     ? '<a class="btn cbtn-calc" href="index.html#calc?model='+p.calc+'&color='+encodeURIComponent(cur[1])+'">Рассчитать</a>'
-    : '<a class="btn btn-ghost" href="index.html#contact">Запросить расчёт</a>';
+    : '<a class="btn btn-ghost" href="index.html#ask='+encodeURIComponent(p.t)+'">Узнать цену</a>';
   card.innerHTML='<div class="cmain"><img alt="'+p.t+'"></div>'
     +'<div class="cthumbs">'+thumbs+'</div>'
     +'<div class="cinfo"><b class="serif">'+p.t+'</b><span class="sec">'+p.sec+'</span><span class="cname">Цвет: <b class="curname">'+cur[1]+'</b></span><p>'+p.d+'</p><div class="cact">'+act+'</div></div>';
