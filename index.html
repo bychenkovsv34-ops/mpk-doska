@@ -171,6 +171,7 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
 .calc input:focus,.calc select:focus{outline:none;border-color:var(--bronze);box-shadow:0 0 0 3px rgba(207,161,95,.12)}
 .calc select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%239d9182' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
 .fld-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sublbl{display:block;font-size:12px;color:var(--mut);margin-bottom:6px;font-weight:600}
 .seg{display:grid;grid-auto-flow:column;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .seg button{background:var(--bg);border:0;border-right:1px solid var(--line);color:var(--mut);font-family:inherit;font-size:14px;
   padding:11px 8px;cursor:pointer;transition:.2s;font-weight:600}
@@ -202,8 +203,10 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
 .res-total .num{font-family:Georgia,serif;font-size:34px;color:var(--bronze);letter-spacing:-1px;line-height:1}
 .res-total .num small{font-size:18px}
 .res-note{font-size:12px;color:#6f655a;line-height:1.5;margin-top:10px}
-.calc-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.calc-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px;align-items:center}
 .calc-actions .btn{width:100%}
+.pdf-link{background:none;border:0;color:var(--mut);font-family:inherit;font-size:13px;cursor:pointer;padding:4px 8px;transition:.2s;text-decoration:underline;text-underline-offset:3px}
+.pdf-link:hover{color:var(--bronze)}
 .lead-form{display:none;flex-direction:column;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
 .lead-form.show{display:flex}
 .lead-form input{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--txt);font-family:inherit;font-size:15px;padding:12px 14px;border-radius:6px}
@@ -387,10 +390,10 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
         <h3 class="serif">Параметры площадки</h3>
 
         <div class="fld">
-          <label>Размер площадки, метры</label>
+          <label>Размер площадки</label>
           <div class="fld-row">
-            <input type="number" id="len" placeholder="длина, м" value="5" min="0" step="0.1">
-            <input type="number" id="wid" placeholder="ширина, м" value="6" min="0" step="0.1">
+            <div><span class="sublbl">Длина, м</span><input type="number" id="len" placeholder="напр. 5" value="5" min="0" step="0.1"></div>
+            <div><span class="sublbl">Ширина, м</span><input type="number" id="wid" placeholder="напр. 6" value="6" min="0" step="0.1"></div>
           </div>
           <div style="font-size:12.5px;color:var(--mut);margin-top:8px">Площадь: <b id="area-out" style="color:var(--bronze)">30 м²</b> · не знаете точно — введите примерно, уточним на замере</div>
         </div>
@@ -461,17 +464,18 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
         <div class="res-note">Доставка — самовывоз бесплатно, доставку рассчитаем отдельно. Цены ориентировочные, не являются офертой; точную стоимость подтвердит менеджер.</div>
 
         <div class="calc-actions">
-          <button class="btn" id="btn-lead">Получить точный расчёт и счёт</button>
-          <button class="btn btn-ghost" id="btn-print">Скачать / распечатать расчёт</button>
+          <button class="btn" id="btn-lead">Получить расчёт и счёт</button>
+          <button class="pdf-link" id="btn-pdf">📄 Скачать PDF расчёта</button>
         </div>
 
         <form class="lead-form" id="lead-form">
+          <div id="lf-title" style="font-size:13.5px;color:var(--txt);font-weight:600;text-align:center">Куда прислать расчёт?</div>
           <input type="text" id="lf-name" placeholder="Ваше имя" required>
           <input type="tel" id="lf-phone" placeholder="Телефон для связи" required>
-          <button type="submit" class="btn">Отправить заявку →</button>
-          <div style="font-size:12px;color:var(--mut);text-align:center">Откроется почта / Telegram с готовым расчётом — останется нажать «отправить».</div>
+          <button type="submit" class="btn" id="lf-submit">Отправить заявку →</button>
+          <div id="lf-hint" style="font-size:12px;color:var(--mut);text-align:center">Откроется почта с готовым расчётом — останется нажать «отправить».</div>
         </form>
-        <div class="lead-ok" id="lead-ok">✓ Расчёт собран — отправьте сообщение, мы свяжемся с вами.</div>
+        <div class="lead-ok" id="lead-ok">✓ Готово! Мы получили ваш расчёт и свяжемся с вами.</div>
       </div>
     </div>
   </div>
@@ -634,28 +638,8 @@ function summaryText(){
   return t;
 }
 
-// показать форму заявки
-$('btn-lead').addEventListener('click',()=>{
-  $('lead-form').classList.toggle('show');
-  if($('lead-form').classList.contains('show')) $('lf-name').focus();
-});
-
-// отправка заявки → почта (mailto) + Telegram, расчёт готов в теле
-$('lead-form').addEventListener('submit',e=>{
-  e.preventDefault();
-  const name=$('lf-name').value.trim(), phone=$('lf-phone').value.trim();
-  const body=`Здравствуйте! Прошу прислать точный счёт.\n\nИмя: ${name}\nТелефон: ${phone}\n\n${summaryText()}`;
-  const subject='Заявка с калькулятора МПК-доска';
-  // основной канал — почта (работает без бэкенда)
-  window.location.href=`mailto:tka-mos@yandex.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  // копия в буфер — чтобы можно было вставить в Telegram-бот
-  if(navigator.clipboard) navigator.clipboard.writeText(body).catch(()=>{});
-  $('lead-form').classList.remove('show');
-  $('lead-ok').classList.add('show');
-});
-
-// печать / PDF — нативно, без библиотек (кириллица ок)
-$('btn-print').addEventListener('click',()=>{
+// сборка области печати/PDF (нативно, кириллица ок)
+function buildPrintArea(){
   const d=calc._data;
   let r=`<tr><td>Модель</td><td>${d.model}</td></tr>`;
   r+=`<tr><td>Цвет / обработка</td><td>${d.color} · ${d.treat}</td></tr>`;
@@ -673,7 +657,36 @@ $('btn-print').addEventListener('click',()=>{
       <tr><td style="font-size:17px"><b>Ориентир комплекта</b></td><td style="font-size:17px"><b>≈ ${money(d.total)}</b></td></tr>
     </table>
     <p style="font-size:12px;color:#666;max-width:540px">Доставка — самовывоз бесплатно, доставку рассчитаем отдельно. Нарезка по вашим размерам от 30 м² — бесплатно. Расчёт ориентировочный, не является офертой; точную стоимость подтвердит менеджер.</p>`;
-  window.print();
+}
+
+// единая форма заявки с двумя сценариями: счёт (quote) и скачать PDF (pdf — отдаём только после контакта)
+let leadIntent='quote';
+function openLead(intent){
+  leadIntent=intent;
+  $('lf-title').textContent = intent==='pdf' ? 'Оставьте контакт — и получите PDF расчёта' : 'Куда прислать расчёт и счёт?';
+  $('lf-submit').textContent = intent==='pdf' ? 'Получить PDF →' : 'Отправить заявку →';
+  $('lf-hint').textContent = intent==='pdf'
+    ? 'Откроется PDF для сохранения, а мы получим вашу заявку.'
+    : 'Откроется почта с готовым расчётом — останется нажать «отправить».';
+  $('lead-ok').classList.remove('show');
+  $('lead-form').classList.add('show');
+  $('lf-name').focus();
+}
+$('btn-lead').addEventListener('click',()=>openLead('quote'));
+$('btn-pdf').addEventListener('click',()=>openLead('pdf'));
+
+$('lead-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('lf-name').value.trim(), phone=$('lf-phone').value.trim();
+  const body=`Здравствуйте! Прошу прислать точный счёт.\n\nИмя: ${name}\nТелефон: ${phone}\n\n${summaryText()}`;
+  const subject='Заявка с калькулятора МПК-доска';
+  // лид ловим всегда: почта (без бэкенда) + копия в буфер. mailto не перезагружает страницу.
+  window.location.href=`mailto:tka-mos@yandex.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  if(navigator.clipboard) navigator.clipboard.writeText(body).catch(()=>{});
+  $('lead-form').classList.remove('show');
+  $('lead-ok').classList.add('show');
+  // PDF отдаём только после контакта
+  if(leadIntent==='pdf'){ buildPrintArea(); setTimeout(()=>window.print(),300); }
 });
 </script>
 </body>
