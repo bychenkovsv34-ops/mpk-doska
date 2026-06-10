@@ -151,6 +151,9 @@ section{padding:90px 0}
 footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);font-size:14px}
 .foot-main{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
 .foot-legal{display:flex;flex-direction:column;gap:8px;line-height:1.7}
+.foot-credit{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:#6f655a}
+.foot-credit a{color:var(--bronze);font-weight:600}
+.foot-credit a:hover{text-decoration:underline}
 
 .reveal{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -384,29 +387,22 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
         <h3 class="serif">Параметры площадки</h3>
 
         <div class="fld">
-          <label>Что зашиваем</label>
-          <div class="seg" id="seg-use">
-            <button data-v="terrace" class="on">Терраса / пол</button>
-            <button data-v="fence">Забор</button>
-            <button data-v="facade">Фасад</button>
-          </div>
-        </div>
-
-        <div class="fld">
           <label>Размер площадки, метры</label>
           <div class="fld-row">
             <input type="number" id="len" placeholder="длина, м" value="5" min="0" step="0.1">
-            <input type="number" id="wid" placeholder="ширина, м" value="4" min="0" step="0.1">
+            <input type="number" id="wid" placeholder="ширина, м" value="6" min="0" step="0.1">
           </div>
-          <div style="font-size:12.5px;color:var(--mut);margin-top:8px">Площадь: <b id="area-out" style="color:var(--bronze)">20 м²</b> · не знаете точно — введите примерно, уточним на замере</div>
+          <div style="font-size:12.5px;color:var(--mut);margin-top:8px">Площадь: <b id="area-out" style="color:var(--bronze)">30 м²</b> · не знаете точно — введите примерно, уточним на замере</div>
         </div>
 
         <div class="fld">
           <label>Модель доски</label>
           <select id="model">
-            <option value="arte">Arte — 140×22 мм (базовая)</option>
-            <option value="strada">Strada — 140×25 мм (усиленная)</option>
-            <option value="forte">Forte / MAX — 160×22 мм (широкая)</option>
+            <option value="arte">Arte — 22×140 (базовая, МПК)</option>
+            <option value="strada">Strada — 25×140 (усиленная, МПК)</option>
+            <option value="forte">Forte — 22×160 (широкая, МПК)</option>
+            <option value="fortemax">Forte MAX — 22×160 (премиум полнотелая, МПК)</option>
+            <option value="solito">Solito R — 22×140 (эконом, ДПК)</option>
           </select>
         </div>
 
@@ -414,8 +410,8 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
           <div class="fld">
             <label>Длина доски</label>
             <select id="boardlen">
-              <option value="3000">3 метра</option>
-              <option value="4000" selected>4 метра</option>
+              <option value="3000" selected>3 метра</option>
+              <option value="4000">4 метра</option>
               <option value="6000">6 метров</option>
             </select>
           </div>
@@ -423,23 +419,33 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
             <label>Укладка</label>
             <select id="lay">
               <option value="1">Прямая</option>
-              <option value="2">Диагональная (+5% запас)</option>
+              <option value="2">Диагональная (+5%)</option>
             </select>
           </div>
         </div>
 
-        <div class="fld">
-          <label>Что включить в расчёт</label>
-          <div class="checks">
-            <label class="chk"><input type="checkbox" id="c-lag" checked><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span><span id="lag-label">Лаги (подсистема)</span></label>
-            <label class="chk"><input type="checkbox" id="c-clip" checked><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span><span>Крепёж — клипсы и саморезы</span></label>
-            <label class="chk"><input type="checkbox" id="c-plank" checked><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span><span>Торцевая / финишная планка</span></label>
+        <div class="fld-row">
+          <div class="fld">
+            <label>Цвет</label>
+            <select id="color">
+              <option>серый</option><option>шоколад</option><option>чёрный</option><option>красный</option>
+              <option>бронза</option><option>жёлтый</option><option>белый</option><option>какао</option><option>бежевый</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label>Обработка</label>
+            <select id="treat">
+              <option>вельвет+брашинг</option><option>3D тиснение</option><option>шлифовка+тиснение</option><option>глянец</option>
+            </select>
           </div>
         </div>
 
         <div class="fld" style="margin-bottom:0">
-          <label>Запас на подрезку: <b id="res-out" style="color:var(--bronze)">10%</b></label>
-          <input type="range" id="reserve" min="5" max="20" value="10" step="1" style="width:100%;accent-color:var(--bronze)">
+          <label>Дополнительно</label>
+          <div class="checks">
+            <label class="chk"><input type="checkbox" id="c-plank"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span><span>Торцевая / финишная планка <small>по периметру</small></span></label>
+          </div>
+          <div style="font-size:12px;color:#6f655a;margin-top:10px">Доска, лаги и клипсы включены в расчёт всегда. Нарезка по вашим размерам от 30 м² — бесплатно.</div>
         </div>
       </div>
 
@@ -449,10 +455,10 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
         <div class="res-rows" id="res-rows"><!-- JS --></div>
 
         <div class="res-total">
-          <div class="lbl">Ориентир стоимости материалов</div>
+          <div class="lbl">Ориентир стоимости комплекта</div>
           <div class="num" id="total">—</div>
         </div>
-        <div class="res-note">Цены ориентировочные. Точную стоимость с учётом цвета, текстуры, доставки и монтажа подтвердит менеджер. Расчёт не является офертой.</div>
+        <div class="res-note">Доставка — самовывоз бесплатно, доставку рассчитаем отдельно. Цены ориентировочные, не являются офертой; точную стоимость подтвердит менеджер.</div>
 
         <div class="calc-actions">
           <button class="btn" id="btn-lead">Получить точный расчёт и счёт</button>
@@ -530,6 +536,7 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
       <div>Торговая компания «Альянс» · официальный дилер завода-производителя МПК · Московская обл., г. Ивантеевка, ул. Школьная, 25</div>
       <div>тел. +7 (960) 878-50-00 · tka-mos@yandex.ru · © 2026 МПК-доска. Все права защищены.</div>
     </div>
+    <div class="foot-credit">Сделано в студии <a href="https://agblabai.ru" target="_blank" rel="noopener">AGBLab&nbsp;AI</a> — сайты и AI-продавцы для бизнеса под ключ</div>
   </div>
 </footer>
 
@@ -545,92 +552,85 @@ document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{
 })});
 
 /* ===================== КАЛЬКУЛЯТОР =====================
-   ВНИМАНИЕ: цены ОРИЕНТИРОВОЧНЫЕ — заменить на реальный прайс завода/ТК «Альянс».
-   Достаточно поправить блок PRICE ниже (₽). Логика расчёта останется прежней. */
-const PRICE = {
-  board:  { arte: 2700, strada: 3200, forte: 3400 }, // ₽ за 1 м² доски (ориентир)
-  lag:    160,   // ₽ за 1 пог.м лаги (опорный брусок)
-  clip:   28,    // ₽ за 1 клипсу с саморезом
-  plank:  420    // ₽ за 1 пог.м торцевой/финишной планки
+   Механика 1-в-1 из «Калькулятор расчета.xlsx» поставщика (Роскомпозит), РРЦ на 16.03.2026.
+   Чтобы изменить цены/наценку — правь PRICE_MULT и блоки MODELS / PARTS ниже. */
+const PRICE_MULT = 1.0;  // 1.0 = РРЦ поставщика как есть. Наценка/налоги позже (ИП ≈1.08, ООО ≈1.22).
+
+// модели: норма доски (п.м/м²), ширина (мм), запас, цена доски ₽/п.м (РРЦ), норма клипс/м², упаковка клипс
+const MODELS = {
+  arte:     {name:'Arte',      sec:'22×140', mat:'МПК', w:140, board:7.0,  res:0.05, price:585.70,  clipNorm:23, clipPack:50},
+  strada:   {name:'Strada',    sec:'25×140', mat:'МПК', w:140, board:7.0,  res:0.05, price:657.00,  clipNorm:23, clipPack:50},
+  forte:    {name:'Forte',     sec:'22×160', mat:'МПК', w:160, board:6.25, res:0.05, price:846.90,  clipNorm:21, clipPack:50},
+  fortemax: {name:'Forte MAX', sec:'22×160', mat:'МПК', w:160, board:6.25, res:0.05, price:1237.70, clipNorm:21, clipPack:50},
+  solito:   {name:'Solito R',  sec:'22×140', mat:'ДПК', w:140, board:7.0,  res:0.0,  price:290.00,  clipNorm:21, clipPack:10},
 };
-// ширина рабочей части доски, мм — задаёт расход
-const BOARD_W = { arte:140, strada:140, forte:160 };
-const GAP = 5;            // зазор между досками, мм
-const LAG_STEP = { terrace:0.35, fence:0.50, facade:0.50 }; // шаг лаг/обрешётки, м
+// комплектующие по типу материала
+const PARTS = {
+  'МПК': {lagName:'Лага МПК 30×50', lagNorm:3.3, lagPrice:250, angleName:'Уголок МПК 40×60', anglePrice:272.80, clipPrice:22.63, clipStart:20},
+  'ДПК': {lagName:'Лага ДПК 50×60', lagNorm:3.3, lagPrice:240, angleName:'Уголок ДПК 50×50', anglePrice:180,    clipPrice:19.90, clipStart:0},
+};
 
 const $ = id => document.getElementById(id);
-const seg = $('seg-use'); let use='terrace';
 const fmt = n => n.toLocaleString('ru-RU');
 const money = n => fmt(Math.round(n))+' ₽';
-
-seg.addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b)return;
-  seg.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); use=b.dataset.v;
-  $('lag-label').textContent = use==='terrace' ? 'Лаги (подсистема)' : 'Лаги обрешётки';
-  calc();
-});
+const blenLabel = v => ({'3000':'3 м','4000':'4 м','6000':'6 м'}[v]||v);
 
 function calc(){
   const L=parseFloat($('len').value)||0, W=parseFloat($('wid').value)||0;
   const area=L*W;
   $('area-out').textContent = area>0 ? fmt(+area.toFixed(1))+' м²' : '—';
-  const model=$('model').value;
-  const bw=BOARD_W[model], blen=parseFloat($('boardlen').value)/1000; // длина доски, м
-  const reserve=parseInt($('reserve').value);
-  $('res-out').textContent=reserve+'%';
-  const layFactor = $('lay').value==='2' ? 1.05 : 1; // диагональ +5%
-  const k = (1+reserve/100)*layFactor;               // общий множитель запаса
+  const key=$('model').value, M=MODELS[key], P=PARTS[M.mat];
+  const blenMM=$('boardlen').value, blen=parseFloat(blenMM)/1000;     // длина доски, м
+  const diag = $('lay').value==='2';
+  const reserveFactor = 1 + M.res + (diag?0.05:0);                    // запас модели (+5% за диагональ)
+  const wantPlank=$('c-plank').checked;
 
-  const areaR = area*k;                              // площадь с запасом
-  // доска
-  const boardArea = (bw/1000)*blen;                  // м² в одной доске (по рабочей ширине)
-  const boards = Math.ceil(areaR / boardArea);
-  const boardM2 = +(boards*boardArea).toFixed(1);
-  // лаги: пог.м = площадь / шаг лаг
-  const step=LAG_STEP[use];
-  const lagM = Math.ceil(area / step);
-  // клипсы: на 1 м² ≈ 1/((ширина+зазор)/1000 × шаг лаг)
-  const clipPerM2 = 1/(((bw+GAP)/1000)*step);
-  const clips = Math.ceil(areaR*clipPerM2);
-  // торцевая планка по периметру
-  const plankM = Math.ceil(2*(L+W));
+  // ДОСКА: ROUNDUP(площадь × норма × запас / длина) × длина  → целое число досок
+  const boardM = Math.ceil((area*M.board*reserveFactor)/blen)*blen;   // п.м
+  const boards = Math.round(boardM/blen);                             // штук
+  const boardM2 = +(boardM*(M.w/1000)).toFixed(1);                    // перекрываемая площадь, м²
+  // ЛАГИ: ROUNDUP(площадь × 3,3 / длина) × длина
+  const lagM = Math.ceil((area*P.lagNorm)/blen)*blen;
+  // КЛИПСЫ: рядовые = ROUNDUP(площадь × норма / упаковка) × упаковка; стартовые фикс.
+  const clipsRow = area>0 ? Math.ceil((area*M.clipNorm)/M.clipPack)*M.clipPack : 0;
+  const clipsStart = area>0 ? P.clipStart : 0;
+  const clipsTotal = clipsRow + clipsStart;
+  // ТОРЦЕВАЯ/УГОЛОК: по периметру, кратно длине
+  const perim = 2*(L+W);
+  const plankM = wantPlank ? Math.ceil(perim/blen)*blen : 0;
 
-  const wantLag=$('c-lag').checked, wantClip=$('c-clip').checked, wantPlank=$('c-plank').checked;
+  // СТОИМОСТЬ (РРЦ × множитель)
+  const cBoard=boardM*M.price, cLag=lagM*P.lagPrice, cClip=clipsTotal*P.clipPrice, cPlank=plankM*P.anglePrice;
+  const total=(cBoard+cLag+cClip+cPlank)*PRICE_MULT;
 
-  // вывод строк
+  // строки результата
   const rows=[];
-  rows.push(`<div class="res-row"><div class="k">Доска ${model.charAt(0).toUpperCase()+model.slice(1)} (${bw}×${$('boardlen').value==='3000'?'3м':$('boardlen').value==='4000'?'4м':'6м'})<em>с запасом ${reserve}%${layFactor>1?' + диагональ':''}</em></div><div class="v">${fmt(boards)} <small>шт · ${fmt(boardM2)} м²</small></div></div>`);
-  if(wantLag) rows.push(`<div class="res-row"><div class="k">Лаги / обрешётка<em>шаг ${step*1000} мм</em></div><div class="v">${fmt(lagM)} <small>пог.м</small></div></div>`);
-  if(wantClip) rows.push(`<div class="res-row"><div class="k">Клипсы с саморезами</div><div class="v">${fmt(clips)} <small>шт</small></div></div>`);
-  if(wantPlank) rows.push(`<div class="res-row"><div class="k">Торцевая / финишная планка<em>по периметру</em></div><div class="v">${fmt(plankM)} <small>пог.м</small></div></div>`);
-  $('res-rows').innerHTML = area>0 ? rows.join('') : '<div class="res-row"><div class="k">Введите размеры площадки</div></div>';
+  rows.push(`<div class="res-row"><div class="k">${M.name} ${M.sec} <small>(${M.mat})</small><em>доска ${blenLabel(blenMM)}, запас ${Math.round((reserveFactor-1)*100)}%${diag?' (диаг.)':''}</em></div><div class="v">${fmt(boards)} <small>шт · ${fmt(+boardM.toFixed(1))} п.м · ≈${fmt(boardM2)} м²</small></div></div>`);
+  rows.push(`<div class="res-row"><div class="k">${P.lagName}<em>норма ${String(P.lagNorm).replace('.',',')} п.м/м²</em></div><div class="v">${fmt(+lagM.toFixed(1))} <small>п.м</small></div></div>`);
+  rows.push(`<div class="res-row"><div class="k">Клипсы (сталь)<em>${clipsStart?'стартовые '+clipsStart+' + ':''}рядовые ${fmt(clipsRow)}</em></div><div class="v">${fmt(clipsTotal)} <small>шт</small></div></div>`);
+  if(wantPlank) rows.push(`<div class="res-row"><div class="k">${P.angleName}<em>по периметру ${fmt(+perim.toFixed(1))} м</em></div><div class="v">${fmt(+plankM.toFixed(1))} <small>п.м</small></div></div>`);
+  $('res-rows').innerHTML = area>0 ? rows.join('') : '<div class="res-row"><div class="k" style="color:var(--mut)">Введите размеры площадки</div></div>';
 
-  // стоимость
-  let total = boardM2*PRICE.board[model];
-  if(wantLag) total += lagM*PRICE.lag;
-  if(wantClip) total += clips*PRICE.clip;
-  if(wantPlank) total += plankM*PRICE.plank;
-  $('total').innerHTML = area>0 ? '≈ '+fmt(Math.round(total/100)*100)+' <small>₽</small>' : '—';
+  $('total').innerHTML = area>0 ? '≈ '+money(total).replace(' ₽','')+' <small>₽</small>' : '—';
 
   // данные для заявки/печати
-  calc._data = {area:+area.toFixed(1), model, bw, blen:$('boardlen').value,
-    boards, boardM2, lagM:wantLag?lagM:0, clips:wantClip?clips:0, plankM:wantPlank?plankM:0,
-    reserve, total:Math.round(total/100)*100, use};
+  calc._data = {area:+area.toFixed(1), model:M.name+' '+M.sec+' ('+M.mat+')', blen:blenLabel(blenMM),
+    color:$('color').value, treat:$('treat').value, diag,
+    boards, boardM:+boardM.toFixed(1), boardM2, lagName:P.lagName, lagM:+lagM.toFixed(1),
+    clipsRow, clipsStart, clipsTotal, angleName:P.angleName, plankM:+plankM.toFixed(1),
+    total:Math.round(total)};
 }
-['len','wid','model','boardlen','lay','reserve','c-lag','c-clip','c-plank'].forEach(id=>{
+['len','wid','model','boardlen','lay','color','treat','c-plank'].forEach(id=>{
   const el=$(id); el.addEventListener('input',calc); el.addEventListener('change',calc);
 });
 calc();
 
 // текст расчёта (для письма / печати)
 function summaryText(){
-  const d=calc._data, u={terrace:'Терраса / пол',fence:'Забор',facade:'Фасад'}[d.use];
-  let t=`Расчёт МПК-доски\n----------------------\nПрименение: ${u}\nПлощадь: ${fmt(d.area)} м² (запас ${d.reserve}%)\nДоска: ${d.model} — ${fmt(d.boards)} шт / ${fmt(d.boardM2)} м²`;
-  if(d.lagM) t+=`\nЛаги: ${fmt(d.lagM)} пог.м`;
-  if(d.clips) t+=`\nКлипсы с саморезами: ${fmt(d.clips)} шт`;
-  if(d.plankM) t+=`\nТорцевая планка: ${fmt(d.plankM)} пог.м`;
-  t+=`\n----------------------\nОриентир стоимости: ≈ ${money(d.total)}\n(ориентировочно, без учёта доставки и монтажа)`;
+  const d=calc._data;
+  let t=`Расчёт террасной доски\n----------------------\nМодель: ${d.model}\nЦвет: ${d.color}, обработка: ${d.treat}\nПлощадь: ${fmt(d.area)} м²${d.diag?' (диагональная укладка)':''}\nДлина доски: ${d.blen}\n\nДоска: ${fmt(d.boards)} шт / ${fmt(d.boardM)} п.м (≈${fmt(d.boardM2)} м²)\n${d.lagName}: ${fmt(d.lagM)} п.м\nКлипсы: ${fmt(d.clipsTotal)} шт${d.clipsStart?' (стартовые '+d.clipsStart+' + рядовые '+fmt(d.clipsRow)+')':''}`;
+  if(d.plankM) t+=`\n${d.angleName}: ${fmt(d.plankM)} п.м`;
+  t+=`\n----------------------\nОриентир комплекта: ≈ ${money(d.total)}\nДоставка — самовывоз бесплатно, доставку рассчитаем отдельно.\n(ориентировочно, не является офертой)`;
   return t;
 }
 
@@ -656,21 +656,23 @@ $('lead-form').addEventListener('submit',e=>{
 
 // печать / PDF — нативно, без библиотек (кириллица ок)
 $('btn-print').addEventListener('click',()=>{
-  const d=calc._data, u={terrace:'Терраса / пол',fence:'Забор',facade:'Фасад'}[d.use];
-  let r=`<tr><td>Применение</td><td>${u}</td></tr><tr><td>Площадь</td><td>${fmt(d.area)} м² (запас ${d.reserve}%)</td></tr>`;
-  r+=`<tr><td>Доска ${d.model}</td><td>${fmt(d.boards)} шт / ${fmt(d.boardM2)} м²</td></tr>`;
-  if(d.lagM) r+=`<tr><td>Лаги / обрешётка</td><td>${fmt(d.lagM)} пог.м</td></tr>`;
-  if(d.clips) r+=`<tr><td>Клипсы с саморезами</td><td>${fmt(d.clips)} шт</td></tr>`;
-  if(d.plankM) r+=`<tr><td>Торцевая планка</td><td>${fmt(d.plankM)} пог.м</td></tr>`;
+  const d=calc._data;
+  let r=`<tr><td>Модель</td><td>${d.model}</td></tr>`;
+  r+=`<tr><td>Цвет / обработка</td><td>${d.color} · ${d.treat}</td></tr>`;
+  r+=`<tr><td>Площадь${d.diag?' (диагональ)':''}</td><td>${fmt(d.area)} м²</td></tr>`;
+  r+=`<tr><td>Доска (${d.blen})</td><td>${fmt(d.boards)} шт / ${fmt(d.boardM)} п.м</td></tr>`;
+  r+=`<tr><td>${d.lagName}</td><td>${fmt(d.lagM)} п.м</td></tr>`;
+  r+=`<tr><td>Клипсы (сталь)</td><td>${fmt(d.clipsTotal)} шт</td></tr>`;
+  if(d.plankM) r+=`<tr><td>${d.angleName}</td><td>${fmt(d.plankM)} п.м</td></tr>`;
   $('print-area').innerHTML=`
     <h1 style="font-family:Georgia,serif;font-weight:400">МПК·доска — расчёт материалов</h1>
     <p>ТК «Альянс» · +7 (960) 878-50-00 · tka-mos@yandex.ru · mpk-doska.ru</p>
-    <table style="border-collapse:collapse;width:100%;max-width:520px;margin:18px 0;font-family:Arial,sans-serif">
+    <table style="border-collapse:collapse;width:100%;max-width:540px;margin:18px 0;font-family:Arial,sans-serif">
       <style>#print-area td{border:1px solid #ccc;padding:9px 12px;font-size:15px}#print-area td:last-child{font-weight:700;text-align:right}</style>
       ${r}
-      <tr><td style="font-size:17px"><b>Ориентир стоимости</b></td><td style="font-size:17px"><b>≈ ${money(d.total)}</b></td></tr>
+      <tr><td style="font-size:17px"><b>Ориентир комплекта</b></td><td style="font-size:17px"><b>≈ ${money(d.total)}</b></td></tr>
     </table>
-    <p style="font-size:12px;color:#666;max-width:520px">Расчёт ориентировочный, не является офертой. Точную стоимость с учётом цвета, текстуры, доставки и монтажа подтвердит менеджер.</p>`;
+    <p style="font-size:12px;color:#666;max-width:540px">Доставка — самовывоз бесплатно, доставку рассчитаем отдельно. Нарезка по вашим размерам от 30 м² — бесплатно. Расчёт ориентировочный, не является офертой; точную стоимость подтвердит менеджер.</p>`;
   window.print();
 });
 </script>
