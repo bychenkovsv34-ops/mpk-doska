@@ -56,6 +56,7 @@ section{padding:90px 0}
 .hero-photo{margin-top:56px;height:clamp(220px,38vw,420px);border-radius:6px;border:1px solid var(--line);overflow:hidden;position:relative;
   background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(20,12,5,.55)),linear-gradient(150deg,#f3c878 0%,#d9954e 30%,#b9663a 58%,#2f5038 100%)}
 .hero-photo span{position:absolute;bottom:18px;left:22px;color:rgba(255,255,255,.85);font-size:13px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.hero-photo img,.app .ph img,.obj .ph img{width:100%;height:100%;object-fit:cover;display:block}
 .trust{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
 @media(max-width:680px){.trust{grid-template-columns:1fr 1fr}}
 .trust div{background:var(--bg);padding:22px 20px}
@@ -300,7 +301,7 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
       <a href="#calc" class="btn">Рассчитать стоимость →</a>
       <a href="#objects" class="btn btn-ghost">Смотреть объекты</a>
     </div>
-    <div class="hero-photo reveal"><span>фото террасы из МПК в золотой час →</span></div>
+    <div class="hero-photo reveal"><img src="assets/obj/ter_bronza11.jpg" alt="Терраса из МПК-доски — благоустройство парка, Сочи"></div>
     <div class="trust reveal">
       <div><b>5–10 лет</b><small>гарантия завода</small></div>
       <div><b>25+</b><small>лет службы</small></div>
@@ -360,10 +361,10 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
   </div>
   <div class="wrap">
     <div class="apps">
-      <div class="app reveal"><div class="ph">фото террасы</div><div class="t"><h4>Террасная доска</h4><p>Террасы, патио, зоны у бассейна, причалы.</p></div></div>
-      <div class="app reveal"><div class="ph">фото забора</div><div class="t"><h4>Заборная доска</h4><p>Заборы, которые не гниют и не красятся.</p></div></div>
-      <div class="app reveal"><div class="ph">фото фасада</div><div class="t"><h4>Фасад / планкен</h4><p>Вентфасады и отделка на десятилетия.</p></div></div>
-      <div class="app reveal"><div class="ph">фото лавок</div><div class="t"><h4>Брус, ступени</h4><p>Скамейки, ступени, малые формы.</p></div></div>
+      <div class="app reveal"><div class="ph"><img src="assets/obj/ter_shok3.jpg" alt="Террасная доска" loading="lazy"></div><div class="t"><h4>Террасная доска</h4><p>Террасы, патио, зоны у бассейна, причалы.</p></div></div>
+      <div class="app reveal"><div class="ph"><img src="assets/obj/zabor_shok.jpg" alt="Заборная доска" loading="lazy"></div><div class="t"><h4>Заборная доска</h4><p>Заборы, которые не гниют и не красятся.</p></div></div>
+      <div class="app reveal"><div class="ph"><img src="assets/obj/fasad_shok.jpg" alt="Фасад из планкена" loading="lazy"></div><div class="t"><h4>Фасад / планкен</h4><p>Вентфасады и отделка на десятилетия.</p></div></div>
+      <div class="app reveal"><div class="ph"><img src="assets/obj/stupen_kakao.jpg" alt="Ступени и брус" loading="lazy"></div><div class="t"><h4>Брус, ступени</h4><p>Скамейки, ступени, малые формы.</p></div></div>
     </div>
   </div>
 </section>
@@ -426,12 +427,12 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
   </div>
   <div class="wrap">
     <div class="port">
-      <div class="obj reveal"><div class="ph">фото объекта</div><div class="t"><b class="serif">Hyatt Regency</b><span>терраса у бассейна, pool-бар</span></div></div>
-      <div class="obj reveal"><div class="ph">фото объекта</div><div class="t"><b class="serif">Ресторан Pullman</b><span>летняя терраса</span></div></div>
-      <div class="obj reveal"><div class="ph">фото объекта</div><div class="t"><b class="serif">Чайхона №1, Сочи</b><span>зона отдыха</span></div></div>
-      <div class="obj reveal"><div class="ph">фото объекта</div><div class="t"><b class="serif">Парк «Ривьера», Сочи</b><span>благоустройство</span></div></div>
-      <div class="obj reveal"><div class="ph">фото объекта</div><div class="t"><b class="serif">Дача Дмитрия Крылова</b><span>МПК «Вельвет», серый</span></div></div>
-      <div class="obj reveal"><div class="ph">ваш объект</div><div class="t"><b class="serif">Частные террасы и заборы</b><span>дома и дачи в Москве и МО</span></div></div>
+      <div class="obj reveal"><div class="ph"><img src="assets/obj/ter_bronza11.jpg" alt="Благоустройство парка" loading="lazy"></div><div class="t"><b class="serif">Парк «Ривьера», Сочи</b><span>благоустройство, бронза</span></div></div>
+      <div class="obj reveal"><div class="ph"><img src="assets/obj/ter_shok3.jpg" alt="Терраса у бассейна" loading="lazy"></div><div class="t"><b class="serif">Терраса у бассейна</b><span>отель, pool-зона, шоколад</span></div></div>
+      <div class="obj reveal"><div class="ph"><img src="assets/obj/ter_bezh14.jpg" alt="Летняя терраса ресторана" loading="lazy"></div><div class="t"><b class="serif">Летняя терраса ресторана</b><span>зона отдыха, бежевый</span></div></div>
+      <div class="obj reveal"><div class="ph"><img src="assets/obj/zabor_shok.jpg" alt="Забор из МПК" loading="lazy"></div><div class="t"><b class="serif">Забор частного дома</b><span>графит, 3D-текстура</span></div></div>
+      <div class="obj reveal"><div class="ph"><img src="assets/obj/fasad_shok.jpg" alt="Вентфасад дома" loading="lazy"></div><div class="t"><b class="serif">Вентфасад дома</b><span>планкен, шоколад</span></div></div>
+      <div class="obj reveal"><div class="ph"><img src="assets/obj/stupen_kakao.jpg" alt="Крыльцо частного дома" loading="lazy"></div><div class="t"><b class="serif">Крыльцо частного дома</b><span>ступени, какао</span></div></div>
     </div>
   </div>
 </section>
