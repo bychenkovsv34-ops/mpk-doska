@@ -231,6 +231,45 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
   #print-area *{color:#000!important}
 }
 #print-area{display:none}
+
+/* ===== чат нейропродавца ===== */
+.chat-fab{position:fixed;right:20px;bottom:20px;z-index:70;display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(140deg,var(--bronze),var(--bronze2));color:#1e1a17;font-weight:700;font-size:14.5px;font-family:inherit;
+  border:none;border-radius:30px;padding:13px 20px;cursor:pointer;box-shadow:0 10px 30px var(--glowA);transition:.25s}
+.chat-fab:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.chat-fab svg{width:21px;height:21px}
+.chat-fab.hide{opacity:0;pointer-events:none;transform:scale(.8)}
+.chat-win{position:fixed;right:20px;bottom:20px;z-index:71;width:374px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 40px);
+  background:var(--card);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;pointer-events:none;transform:translateY(20px) scale(.98);transition:.28s cubic-bezier(.2,.7,.2,1)}
+.chat-win.open{opacity:1;pointer-events:auto;transform:none}
+.chat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--card2)}
+.chat-head-l{display:flex;align-items:center;gap:11px}
+.chat-ava{width:38px;height:38px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-size:20px;color:#1e1a17;background:linear-gradient(140deg,var(--bronze),var(--bronze2))}
+.chat-head b{font-size:15px;display:block;font-family:Georgia,serif;font-weight:400}
+.chat-head i{font-size:12px;color:var(--emerald);font-style:normal}
+.chat-close{background:none;border:0;color:var(--mut);font-size:20px;cursor:pointer;padding:4px 9px;border-radius:8px;line-height:1}
+.chat-close:hover{color:var(--txt)}
+.chat-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:11px}
+.msg{max-width:86%;padding:11px 14px;border-radius:13px;font-size:14.5px;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
+.msg.bot{align-self:flex-start;background:var(--bg);border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg.me{align-self:flex-end;background:linear-gradient(140deg,var(--bronze),var(--bronze2));color:#1e1a17;border-bottom-right-radius:4px;font-weight:500}
+.msg a{color:var(--bronze);text-decoration:underline}
+.msg.me a{color:#1e1a17}
+.chat-chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 12px}
+.chip{background:var(--bg);border:1px solid var(--line);color:var(--txt);font-family:inherit;font-size:13px;padding:9px 13px;border-radius:18px;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--bronze);color:var(--bronze)}
+.chat-typing{align-self:flex-start;display:flex;gap:4px;padding:12px 14px}
+.chat-typing span{width:7px;height:7px;border-radius:50%;background:var(--mut);animation:typ 1.2s infinite}
+.chat-typing span:nth-child(2){animation-delay:.2s}.chat-typing span:nth-child(3){animation-delay:.4s}
+@keyframes typ{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+.chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat-input input{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--txt);font-family:inherit;font-size:14.5px}
+.chat-input input:focus{outline:none;border-color:var(--bronze)}
+.chat-input button{background:linear-gradient(140deg,var(--bronze),var(--bronze2));color:#1e1a17;border:0;border-radius:12px;width:46px;font-size:17px;cursor:pointer;flex-shrink:0}
+.chat-input button:disabled{opacity:.5;cursor:default}
+@media(max-width:480px){.chat-win{right:8px;bottom:8px;height:calc(100dvh - 24px)}.chat-fab{right:12px;bottom:12px}}
 </style>
 </head>
 <body>
@@ -551,6 +590,27 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
   </div>
 </section>
 
+<!-- чат нейропродавца -->
+<button class="chat-fab" id="chatFab" aria-label="Спросить консультанта">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+  Подобрать доску
+</button>
+<div class="chat-win" id="chatWin" role="dialog" aria-label="Консультант по МПК-доске">
+  <div class="chat-head">
+    <div class="chat-head-l">
+      <div class="chat-ava serif">М</div>
+      <div><b>Консультант МПК·доска</b><i>● на связи</i></div>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Закрыть">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-chips" id="chatChips"></div>
+  <form class="chat-input" id="chatForm">
+    <input id="chatText" placeholder="Напишите вопрос…" autocomplete="off" maxlength="1000">
+    <button type="submit" aria-label="Отправить">➤</button>
+  </form>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="foot-main">
@@ -709,6 +769,44 @@ $('lead-form').addEventListener('submit',e=>{
   // PDF отдаём только после контакта
   if(leadIntent==='pdf'){ buildPrintArea(); setTimeout(()=>window.print(),300); }
 });
+
+/* ===================== ЧАТ-НЕЙРОПРОДАВЕЦ (каркас) =====================
+   Фронт готов. Бэкенд (agb-sales-mpk на VPS) подключим, выставив SELLER_API.
+   Промпт продавца — в mpk-doska/ai-seller-prompt.md. Пока API пуст — работают быстрые сценарии. */
+const SELLER_API=''; // → 'https://mpk-doska.ru/api/chat' когда поднимем бэкенд
+(function(){
+  const fab=$('chatFab'),win=$('chatWin'),body=$('chatBody'),chips=$('chatChips'),
+        form=$('chatForm'),input=$('chatText'),closeb=$('chatClose');
+  const GREET='Здравствуйте! Помогу подобрать террасную доску под вашу задачу и посчитать стоимость. Что планируете — терраса, забор или фасад?';
+  const CHIPS=[{t:'Рассчитать стоимость',a:'calc'},{t:'Чем МПК лучше ДПК',a:'mpk'},{t:'Под бюджет',a:'budget'},{t:'Связаться',a:'contact'}];
+  let history=[],busy=false,greeted=false;
+  const addBot=html=>{const d=document.createElement('div');d.className='msg bot';d.innerHTML=html;body.appendChild(d);body.scrollTop=body.scrollHeight;};
+  const addMe=t=>{const d=document.createElement('div');d.className='msg me';d.textContent=t;body.appendChild(d);body.scrollTop=body.scrollHeight;};
+  function typing(on){let t=$('cTyp');if(on){if(t)return;t=document.createElement('div');t.id='cTyp';t.className='chat-typing';t.innerHTML='<span></span><span></span><span></span>';body.appendChild(t);body.scrollTop=body.scrollHeight;}else if(t){t.remove();}}
+  function botSay(t,d){typing(true);setTimeout(()=>{typing(false);addBot(t);},d||600);}
+  function renderChips(){chips.innerHTML='';CHIPS.forEach(c=>{const b=document.createElement('button');b.className='chip';b.textContent=c.t;b.addEventListener('click',()=>chip(c.a,c.t));chips.appendChild(b);});}
+  function open(){win.classList.add('open');fab.classList.add('hide');if(!greeted){greeted=true;addBot(GREET);renderChips();}setTimeout(()=>input.focus(),200);}
+  function close(){win.classList.remove('open');fab.classList.remove('hide');}
+  fab.addEventListener('click',open);closeb.addEventListener('click',close);
+
+  function chip(a,label){addMe(label);
+    if(a==='calc'){botSay('Открываю калькулятор — введите размеры площадки, и я покажу количество доски, лаг, крепежа и ориентир цены.');setTimeout(()=>{document.getElementById('calc').scrollIntoView({behavior:'smooth'});close();},1100);}
+    else if(a==='mpk'){botSay('МПК прочнее и плотнее ДПК, почти не впитывает воду (0,1%), не выгорает на солнце, служит 25+ лет. ДПК (наша линия Solito R) — дешевле и прохладнее под ногами, если бюджет ограничен или ходите босиком.\n\nЧто для вас важнее — максимальная долговечность или экономия?');}
+    else if(a==='budget'){botSay('Под ограниченный бюджет есть линия Solito R (ДПК): вид террасы тот же, цена ниже премиум-МПК. Посчитаем её в калькуляторе?');}
+    else if(a==='contact'){botSay('Свяжемся как удобно:\n📞 <a href="tel:+79608785000">+7 (960) 878-50-00</a>\n✉️ <a href="mailto:tka-mos@yandex.ru">tka-mos@yandex.ru</a>\n💬 <a href="https://t.me/MPKAGB_bot" target="_blank" rel="noopener">Telegram</a>');}
+  }
+  async function send(text){
+    addMe(text);history.push({role:'user',content:text});busy=true;typing(true);
+    if(SELLER_API){
+      try{const r=await fetch(SELLER_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history})});
+        const data=await r.json();typing(false);const reply=data.reply||'Расскажите подробнее о задаче?';addBot(reply);history.push({role:'assistant',content:reply});
+      }catch(e){typing(false);fallback();}
+    }else{setTimeout(()=>{typing(false);fallback();},700);}
+    busy=false;
+  }
+  function fallback(){addBot('Подскажу точнее по телефону или в мессенджере, а ещё можно сразу посчитать в <a href="#calc">калькуляторе</a>:\n📞 <a href="tel:+79608785000">+7 (960) 878-50-00</a> · 💬 <a href="https://t.me/MPKAGB_bot" target="_blank" rel="noopener">Telegram</a>');}
+  form.addEventListener('submit',e=>{e.preventDefault();const t=input.value.trim();if(!t||busy)return;input.value='';send(t);});
+})();
 </script>
 </body>
 </html>
