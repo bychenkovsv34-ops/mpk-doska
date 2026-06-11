@@ -291,6 +291,13 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
 @keyframes micpulse{0%,100%{opacity:1}50%{opacity:.55}}
 @media(max-width:480px){.chat-win{right:8px;bottom:8px;height:calc(100dvh - 24px)}.chat-fab{right:12px;bottom:12px}}
 </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+ym(91449434,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/91449434" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -561,6 +568,7 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
           <input type="tel" id="lf-phone" placeholder="Телефон для связи" required>
           <button type="submit" class="btn" id="lf-submit">Отправить заявку →</button>
           <div id="lf-hint" style="font-size:12px;color:var(--mut);text-align:center">Откроется почта с готовым расчётом — останется нажать «отправить».</div>
+          <div style="font-size:11px;color:#6f655a;text-align:center">Отправляя заявку, вы соглашаетесь с <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--mut)">политикой конфиденциальности</a>.</div>
         </form>
         <div class="lead-ok" id="lead-ok">✓ Готово! Мы получили ваш расчёт и свяжемся с вами.</div>
       </div>
@@ -655,7 +663,7 @@ footer{border-top:1px solid var(--line);padding:42px 0 36px;color:var(--mut);fon
     </div>
     <div class="foot-legal">
       <div>ТОРГОВАЯ КОМПАНИЯ АЛЬЯНС · официальный дилер завода-производителя МПК · Московская обл., г. Ивантеевка, ул. Школьная, 25</div>
-      <div>тел. +7 (960) 878-50-00 · tka-mos@yandex.ru · © 2026 МПК-доска. Все права защищены.</div>
+      <div>тел. +7 (960) 878-50-00 · tka-mos@yandex.ru · © 2026 МПК-доска. Все права защищены. · <a href="privacy.html" style="color:var(--mut);text-decoration:underline">Политика конфиденциальности</a></div>
     </div>
     <div class="foot-credit">Сделано в студии <a href="https://agblabai.ru" target="_blank" rel="noopener">AGBLab&nbsp;AI</a> — сайты и AI-продавцы для бизнеса под ключ</div>
   </div>
@@ -847,8 +855,8 @@ $('lead-form').addEventListener('submit',e=>{
 /* ===================== ЧАТ-НЕЙРОПРОДАВЕЦ (каркас) =====================
    Фронт готов. Бэкенд (agb-sales-mpk на VPS) подключим, выставив SELLER_API.
    Промпт продавца — в mpk-doska/ai-seller-prompt.md. Пока API пуст — работают быстрые сценарии. */
-const SELLER_API=''; // → 'https://mpk-doska.ru/api/chat' когда поднимем бэкенд
-const STT_API='';    // → 'https://mpk-doska.ru/api/stt' (распознавание речи) когда поднимем бэкенд
+const SELLER_API='https://mpk-doska.ru/api/chat'; // живой ИИ-продавец (agb-sales-mpk на VPS)
+const STT_API='https://mpk-doska.ru/api/stt';     // распознавание речи (заработает после переезда на боевой)
 (function(){
   const fab=$('chatFab'),win=$('chatWin'),body=$('chatBody'),chips=$('chatChips'),
         form=$('chatForm'),input=$('chatText'),closeb=$('chatClose'),micBtn=$('chatMic'),spkBtn=$('chatSpk');
