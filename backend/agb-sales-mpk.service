@@ -1,0 +1,15 @@
+[Unit]
+Description=МПК-доска AI Sales backend (нейропродавец Мария)
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/agb-sales-mpk
+EnvironmentFile=/opt/agb-sales-mpk/.env
+# venv переиспользуется из /opt/agb-sales (идентичные зависимости, read-only). Ксению не трогаем.
+ExecStart=/opt/agb-sales/venv/bin/uvicorn app:app --host 127.0.0.1 --port 8082 --workers 1
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target
