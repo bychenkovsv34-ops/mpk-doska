@@ -61,8 +61,13 @@ nav{display:flex;align-items:center;justify-content:space-between;height:70px}
 .cact{display:flex;gap:8px;margin-top:6px}
 .cact .btn{flex:1;font-size:13px;padding:10px 12px}
 footer{border-top:1px solid var(--line);padding:38px 0;color:var(--mut);font-size:14px;margin-top:50px}
-.foot-credit{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:#6f655a}
-.foot-credit a{color:var(--bronze);font-weight:600}
+.foot-credit{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.fc-badge{display:inline-flex;align-items:center;gap:14px;background:linear-gradient(140deg,rgba(207,161,95,.16),rgba(181,106,58,.08));border:1px solid var(--bronze);border-radius:12px;padding:13px 20px;transition:.2s}
+.fc-badge:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.fc-logo{height:36px;width:auto;display:block}
+.fc-badge .t b{color:var(--txt);font-size:14px;font-weight:600;letter-spacing:.2px}
+.fc-badge .t span{display:block;color:var(--mut);font-size:12.5px;margin-top:3px}
+.fc-badge .t span i{font-style:normal;color:var(--bronze);font-weight:600}
 /* лайтбокс */
 .lbox{position:fixed;inset:0;z-index:200;background:rgba(10,8,6,.93);display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:24px;cursor:zoom-out;backdrop-filter:blur(3px)}
 .lbox.open{display:flex}
@@ -117,7 +122,12 @@ ym(91449434,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
 <footer>
   <div class="wrap">
     <div>ТОРГОВАЯ КОМПАНИЯ АЛЬЯНС · официальный дилер завода-производителя МПК · Московская обл., г. Ивантеевка, ул. Школьная, 25 · +7 (960) 878-50-00 · <a href="privacy.html" style="color:var(--mut)">Политика конфиденциальности</a></div>
-    <div class="foot-credit">Сделано в студии <a href="https://agblabai.ru" target="_blank" rel="noopener">AGBLab&nbsp;AI</a> — сайты и AI-продавцы для бизнеса под ключ</div>
+    <div class="foot-credit">
+      <a class="fc-badge" href="https://agblabai.ru" target="_blank" rel="noopener">
+        <img src="assets/agblab-logo.png" alt="AGBLab AI" class="fc-logo">
+        <span class="t"><b>Сделано в студии AGBLab&nbsp;AI</b><span>Сайты и AI-продавцы под ключ · <i>agblabai.ru →</i></span></span>
+      </a>
+    </div>
   </div>
 </footer>
 
