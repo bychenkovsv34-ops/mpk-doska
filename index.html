@@ -623,10 +623,10 @@ ym(91449434,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
     <h2 class="h2 reveal">Подберём, рассчитаем, <em>пришлём счёт</em></h2>
     <p class="sub reveal">Поможем подобрать доску и цвет, посчитаем и пришлём счёт. Ответим быстро.</p>
     <div class="contacts-row reveal">
-      <a href="https://max.ru/" target="_blank" rel="noopener" class="contact-link"><img src="assets/max-icon.png" alt="MAX">Написать в MAX</a>
+      <a href="#" onclick="openMariaChat();return false;" class="contact-link"><img src="assets/max-icon.png" alt="MAX">Написать в MAX</a>
       <a href="tel:+79608785000" class="contact-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>+7 (960) 878-50-00</a>
       <a href="mailto:tka-mos@yandex.ru" class="contact-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>tka-mos@yandex.ru</a>
-      <a href="https://t.me/MPKAGB_bot" target="_blank" rel="noopener" class="contact-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.07-3.01-1.95 1.9c-.22.21-.4.39-.78.39z"/></svg>Telegram-бот</a>
+      <a href="#" onclick="openMariaChat();return false;" class="contact-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.07-3.01-1.95 1.9c-.22.21-.4.39-.78.39z"/></svg>Telegram-бот</a>
     </div>
     <p class="sub reveal" style="margin-top:18px;font-size:14px">Московская область, г. Ивантеевка, ул. Школьная, д. 25</p>
   </div>
@@ -884,12 +884,13 @@ const STT_API='https://mpk-doska.ru/api/stt';     // распознавание 
   function open(){win.classList.add('open');fab.classList.add('hide');if(!greeted){greeted=true;addBot(GREET);renderChips();}setTimeout(()=>input.focus(),200);}
   function close(){win.classList.remove('open');fab.classList.remove('hide');}
   fab.addEventListener('click',open);closeb.addEventListener('click',close);
+  window.openMariaChat=open;   // открыть чат Марии из кнопок контактов (MAX/TG — пока боты не подключены)
 
   function chip(a,label){addMe(label);
     if(a==='calc'){botSay('Открываю калькулятор — введите размеры площадки, и я покажу количество доски, лаг, крепежа и ориентир цены.');setTimeout(()=>{document.getElementById('calc').scrollIntoView({behavior:'smooth'});close();},1100);}
     else if(a==='mpk'){botSay('МПК прочнее и плотнее ДПК, почти не впитывает воду (0,1%), не выгорает на солнце, служит 25+ лет. ДПК (наша линия Solito R) — дешевле и прохладнее под ногами, если бюджет ограничен или ходите босиком.\n\nЧто для вас важнее — максимальная долговечность или экономия?');}
     else if(a==='budget'){botSay('Под ограниченный бюджет есть линия Solito R (ДПК): вид террасы тот же, цена ниже премиум-МПК. Посчитаем её в калькуляторе?');}
-    else if(a==='contact'){botSay('Свяжемся как удобно:\n🟣 <a href="https://max.ru/" target="_blank" rel="noopener">MAX</a>\n📞 <a href="tel:+79608785000">+7 (960) 878-50-00</a>\n✉️ <a href="mailto:tka-mos@yandex.ru">tka-mos@yandex.ru</a>\n💬 <a href="https://t.me/MPKAGB_bot" target="_blank" rel="noopener">Telegram</a>');}
+    else if(a==='contact'){botSay('Можно прямо здесь — я отвечу и соберу заявку 🙂 Или связаться так:\n📞 <a href="tel:+79608785000">+7 (960) 878-50-00</a>\n✉️ <a href="mailto:tka-mos@yandex.ru">tka-mos@yandex.ru</a>');}
   }
   async function send(text){
     addMe(text);history.push({role:'user',content:text});busy=true;typing(true);
@@ -900,7 +901,7 @@ const STT_API='https://mpk-doska.ru/api/stt';     // распознавание 
     }else{setTimeout(()=>{typing(false);fallback();},700);}
     busy=false;
   }
-  function fallback(){addBot('Подскажу точнее по телефону или в мессенджере, а ещё можно сразу посчитать в <a href="#calc">калькуляторе</a>:\n📞 <a href="tel:+79608785000">+7 (960) 878-50-00</a> · 💬 <a href="https://t.me/MPKAGB_bot" target="_blank" rel="noopener">Telegram</a>');}
+  function fallback(){addBot('Подскажу точнее — спрашивайте здесь, а ещё можно сразу посчитать в <a href="#calc">калькуляторе</a>:\n📞 <a href="tel:+79608785000">+7 (960) 878-50-00</a> · ✉️ <a href="mailto:tka-mos@yandex.ru">tka-mos@yandex.ru</a>');}
   form.addEventListener('submit',e=>{e.preventDefault();const t=input.value.trim();if(!t||busy)return;input.value='';send(t);});
 
   // голосовой ввод: запись с микрофона → STT (работает с бэкендом; пока подсказка)
