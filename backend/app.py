@@ -274,15 +274,31 @@ def send_lead_to_tg(lead: dict, repeat: bool = False):
         log.warning("lead->tg failed: %s", e)
 
 def send_lead_to_center(lead: dict) -> bool:
-    """Шлёт лид в единый центр (если LEADS_INTAKE_URL задан). True при успехе."""
+    """Шлёт лид Марии в ЕДИНЫЙ центр лидов с тегом «доска» (отдельный поток от Ксении).
+    Контакт клиента остаётся у нас (центр — наш). True при успехе."""
     if not LEADS_INTAKE_URL:
         return False
+    item   = lead.get("item") or ""
+    volume = lead.get("volume") or ""
+    city   = lead.get("city") or ""
+    channel= lead.get("channel") or ""
+    calc   = lead.get("calc") or ""
+    task   = lead.get("task") or ""
+    parts = []
+    if item:    parts.append(f"Изделие: {item}")
+    if volume:  parts.append(f"Объём: {volume}")
+    if city:    parts.append(f"Город: {city}")
+    if channel: parts.append(f"Канал связи: {channel}")
+    if calc:    parts.append(f"Расчёт: {calc}")
+    if task:    parts.append(f"Запрос: {task}")
+    summary = "🪵 Заявка с сайта МПК-доска\n" + "\n".join(parts) if parts else "🪵 Заявка с сайта МПК-доска"
     try:
         r = httpx.post(
             LEADS_INTAKE_URL,
             headers={"X-Intake-Secret": LEADS_INTAKE_SECRET} if LEADS_INTAKE_SECRET else {},
             json={"name": lead.get("name"), "contact": lead.get("contact"),
-                  "text": lead.get("task"), "ready_for_call": True},
+                  "niche": "🪵 МПК-доска", "size": (volume or city or None), "pain": (item or None),
+                  "text": summary, "ready_for_call": True},
             timeout=10,
         )
         return r.status_code == 200 and bool(r.json().get("ok"))
