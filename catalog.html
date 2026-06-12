@@ -26,6 +26,10 @@ nav{display:flex;align-items:center;justify-content:space-between;height:70px}
 .btn:hover{filter:brightness(1.06);transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
 .btn-ghost:hover{border-color:var(--bronze);color:var(--bronze)}
+.nav-home{display:none}
+@media(max-width:760px){.nav-home{display:inline-flex;font-size:13px;padding:9px 13px}}
+.back-home{display:inline-flex;align-items:center;gap:7px;color:var(--mut);font-size:14px;margin-bottom:20px;transition:.2s}
+.back-home:hover{color:var(--bronze)}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--bronze);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:16px}
 .eyebrow::before{content:"";width:28px;height:1px;background:var(--bronze)}
 .top{padding:120px 0 30px;text-align:center}
@@ -86,12 +90,14 @@ ym(91449434,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
       <a href="#facade">Фасад</a>
       <a href="#extra">Комплектующие</a>
     </div>
+    <a href="index.html" class="btn btn-ghost nav-home">← Главная</a>
     <a href="index.html#calc" class="btn">Калькулятор</a>
   </nav></div>
 </header>
 
 <section class="top">
   <div class="wrap">
+    <a href="index.html" class="back-home">← На главную</a>
     <div class="eyebrow" style="margin-left:auto;margin-right:auto">Каталог</div>
     <h1>Изделия из <em>МПК</em></h1>
     <p>Выберите цвет — фото обновится. Нажмите на фото, чтобы рассмотреть цвет и структуру крупно. Для террасной доски — кнопка «Рассчитать» сразу с выбранной моделью и цветом.</p>
