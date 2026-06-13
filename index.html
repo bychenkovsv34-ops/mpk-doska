@@ -877,7 +877,7 @@ const STT_API='https://mpk-doska.ru/api/stt';     // распознавание 
   const fab=$('chatFab'),win=$('chatWin'),body=$('chatBody'),chips=$('chatChips'),
         form=$('chatForm'),input=$('chatText'),closeb=$('chatClose'),micBtn=$('chatMic'),spkBtn=$('chatSpk');
   let voiceOn=false;
-  function speak(t){ if(!voiceOn||!window.speechSynthesis)return; try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(t).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim());u.lang='ru-RU';u.rate=1.02;speechSynthesis.speak(u);}catch(e){} }
+  function speak(t){ if(!voiceOn||!window.speechSynthesis)return; try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(t).replace(/<[^>]+>/g,' ').replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2190}-\u{21FF}\u{2300}-\u{23FF}\u{FE00}-\u{FE0F}\u{1F1E6}-\u{1F1FF}\u{200D}]/gu,' ').replace(/\s+/g,' ').trim());u.lang='ru-RU';u.rate=1.02;speechSynthesis.speak(u);}catch(e){} }
   spkBtn.addEventListener('click',()=>{ voiceOn=!voiceOn; spkBtn.classList.toggle('off',!voiceOn); spkBtn.textContent=voiceOn?'🔊':'🔇'; if(!voiceOn&&window.speechSynthesis)speechSynthesis.cancel(); });
   const GREET='Здравствуйте! Меня зовут Мария, я помогу подобрать террасную доску под вашу задачу и посчитать стоимость. Что планируете — терраса, забор или фасад?';
   const CHIPS=[{t:'Рассчитать стоимость',a:'calc'},{t:'Чем МПК лучше ДПК',a:'mpk'},{t:'Под бюджет',a:'budget'},{t:'Связаться',a:'contact'}];
@@ -896,7 +896,7 @@ const STT_API='https://mpk-doska.ru/api/stt';     // распознавание 
     if(a==='calc'){botSay('Открываю калькулятор — введите размеры площадки, и я покажу количество доски, лаг, крепежа и ориентир цены.');setTimeout(()=>{document.getElementById('calc').scrollIntoView({behavior:'smooth'});close();},1100);}
     else if(a==='mpk'){botSay('МПК прочнее и плотнее ДПК, почти не впитывает воду (0,1%), не выгорает на солнце, служит 25+ лет. ДПК (наша линия Solito R) — дешевле и прохладнее под ногами, если бюджет ограничен или ходите босиком.\n\nЧто для вас важнее — максимальная долговечность или экономия?');}
     else if(a==='budget'){botSay('Под ограниченный бюджет есть линия Solito R (ДПК): вид террасы тот же, цена ниже премиум-МПК. Посчитаем её в калькуляторе?');}
-    else if(a==='contact'){botSay('Можно прямо здесь — я отвечу и соберу заявку 🙂 Или связаться так:\n📞 <a href="tel:+79608785000">+7 (960) 878-50-00</a>\n✉️ <a href="mailto:tka-mos@yandex.ru">tka-mos@yandex.ru</a>');}
+    else if(a==='contact'){botSay('Можно прямо здесь — я отвечу и соберу заявку. Или связаться так:\n📞 <a href="tel:+79608785000">+7 (960) 878-50-00</a>\n✉️ <a href="mailto:tka-mos@yandex.ru">tka-mos@yandex.ru</a>');}
   }
   async function send(text){
     addMe(text);history.push({role:'user',content:text});busy=true;typing(true);
